@@ -1,0 +1,9 @@
+:root  {
+/*colors*/	
+	--white:ghostwhite;
+/*Logo*/	
+	--fontLogo:Arial;
+/*common*/
+	--colorAnchor:var(--white);
+	--colorLogo:var(--white);
+}	
