@@ -1,9 +1,9 @@
 <script>
-	export let Logo;
+	export let Logo="";
 	export let internal=[{ href:"#", text:"" }];
 	export let icons = [{ svg:"svg", href:"#" }];
 </script>
-<nav>
+<sect>
   <a href=#Logo><h1 id=Logo>{ Logo }</h1></a>
   	<ul>
 		{#each internal as { href, text }, i (i)}
@@ -12,17 +12,18 @@
 	</ul> 
 	<ul id="icons">
 		{#each icons as {svg, alt, href}, i (i)}
-			<a { href }><svelte:component this={ svg }/></a>
+			<a class=icon { href }><svelte:component this={ svg }/></a>
 		{/each}
 	</ul>
-</nav>
+</sect>
 <style>
-	nav {
+	sect {
 		height:9vh;
 		width:100vw;
 		display:flex;
 		justify-content:space-around;
 		align-items:center;
+		background:var(--purple);
 	}
 
 	ul {
@@ -35,6 +36,7 @@
 
 	a {
 		color:var( --colorAnchor );
+		text-shadow:var( --shadow );
 	}
 
 	#Logo {
@@ -42,13 +44,19 @@
 		display:flex;
 		justify-content:center;
 		font-family:var(--fontLogo);
-		font-size:3vh;
+		font-weight:var(--weightLogo);
+		text-shadow:var(--shadowLogo);
+		font-size:4vh;
 		color:var( --colorLogo );
 	}
 
 	#icons {
+		height:7vh;
 		width:7vw;
 		display:flex;
 		justify-content:space-between;
+	}
+	.icon{
+		margin-top:1vh;
 	}
 </style>
