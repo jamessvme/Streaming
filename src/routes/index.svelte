@@ -1,17 +1,27 @@
 <script>
 	import Machine from "$lib/svg/Machine.svelte";
+	import Banner from "$lib/CardImg.svelte";
+	import TypeWriter from "$lib/animation/TypeWriter.svelte";
+
+	const txtToFill = "Build fast programs faster";
+	const delay = 0;
 </script>
-<main class=theme on:scroll='{checkVis}'>
-	<sect id=Banner>
-		<div id=BanTxt>
-			<div>Flogram</div>
-   		   	<div>Language</div>
-    	  	<div id=BanSub>Create Fast Programs Fast</div>
-		</div>
-		<div id=BanImg>
+<!--<main class=theme on:scroll='{checkVis}'>-->
+<main>
+	<Banner>
+		<h1 slot=heading>
+			Flogram
+		</h1>
+		<h1 slot=heading2>
+			Language
+		</h1>
+		<figcaption slot=description>
+			<TypeWriter {txtToFill}/>
+		</figcaption>
+		<picture slot=image>
 			<Machine/>
-		</div>
-	<sect/>
+		</picture>
+	</Banner>
 </main>
 <style>
 	main {
@@ -30,34 +40,5 @@
 		flex-direction:column;
 		justify-content:center;
 		align-items:center;
-	}
-	#Banner {
-		position:absolute;
-		top:7vh;
-		height:45vh;
-		width:100vw;
-		display:flex;
-		justify-content:center;
-		align-content:center;
-		font-size:5vh;
-		font-family:var(--fontLogo);
-		color:var(--purple);
-		font-weight:bold;
-	}
-	#BanTxt {
-		width:25vw;
-		display:flex;
-		flex-direction:column;
-		justify-content:center;
-		align-content:center;
-	}
-	#BanSub{
-		margin-top:1vh;
-		font-size:3vh;
-	}
-	#BanImg{
-		width:25vw;
-		display:flex;
-		justify-content:center;
 	}
 </style>

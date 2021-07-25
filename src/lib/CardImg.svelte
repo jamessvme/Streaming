@@ -1,37 +1,39 @@
-<script>
-	export let headers = [];
-<script>
-
 <figure id=Banner>
 	<div id=BanTxt>
-		<slot name=heading><h1>Header<h1></slot>
+		<slot name=heading>
+			<h1>Header<h1>
+		</slot>
 		{#if $$slots.heading2}
-			<slot name=headering><h2>Header2</h2></slot>
+			<slot name=heading2>
+				<h2>Header2</h2>
+		</slot>
 		{/if}
-		<slot slot=descr><div>description</div></slot>
+		<slot name=description>
+			<figcaption>description</figcaption>
+		</slot>
 	</div>
 	<div id=BanImg>
-		<slot><div>Img</div></slot>
+		<slot name=image><img src=https://via.placeholder.com/150/0000FF/808080/></slot>
 	</div>
-<figure/>
+</figure>
 <style>
-	main {
-		height:100vh;
-		width:101.5vw;
-		overflow-x:hidden;
-		overflow-y:auto;
-		scroll-snap-type:y mandatory;
-	}
-	scroll { 
-		height:100vh;
+	#Banner {
+		position:absolute;
+		top:7vh;
+		height:45vh;
 		width:100vw;
-		scroll-snap-align:start;
-		overflow:hidden;
 		display:flex;
-		flex-direction:column;
 		justify-content:center;
-		align-items:center;
+		align-content:center;
+		font-size:5vh;
+		font-family:var(--fontLogo);
+		color:var(--purple);
+		font-weight:bold;
 	}
+</style>
+
+<!--
+<style>
 	#Banner {
 		position:absolute;
 		top:7vh;
@@ -62,3 +64,4 @@
 		justify-content:center;
 	}
 </style>
+-->
