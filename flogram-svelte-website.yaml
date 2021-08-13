@@ -1,0 +1,16 @@
+name: flogram-svelte-website
+region: nyc
+services:
+- build_command: npm run build
+  environment_slug: node-js
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: Flogram/FlogramSvelteWebsite
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  name: flogram-svelte-website
+  routes:
+  - path: /
+  run_command: PORT=8080 node build
