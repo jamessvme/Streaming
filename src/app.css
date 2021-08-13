@@ -1,0 +1,39 @@
+:root  {
+	/*colors*/	
+		--purple:#440381;
+		--pink:#DE0D92;
+		--green:#087E8B;
+		--blue:#A3E7FC;
+		--black:#000100;
+		--white:ghostwhite;
+	/*Logo*/	
+		--colorLogo:var(--white);
+		--fontLogo:Arial;
+		--weightLogo:Bold;
+		--shadowLogo:var(--blue) 3px 3px 3px;
+	/*common*/
+		--colorAnchor:var(--white);
+		--shadow:var(--blue) 3px 3px 3px;
+	/*Component*/
+		--footerJustify: end;
+}	
+
+.flexRow{
+	display:flex;
+	flex-direction:row;
+}
+.flexColumn{
+	display:flex;
+	flex-direction:column;
+}
+.heading{
+	font: bold 4.5vmin 'Arial', sans serif; 
+}
+.heading2{
+	font: bold 3vmin 'Arial', sans serif; 
+}
+
+body{
+	overflow:hidden;
+	background:var(--green);
+}
