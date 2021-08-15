@@ -29,7 +29,7 @@
 			[ 100, 0 ]
 		]
 	}
-
+	/*
 	const LeftLink = {
 		fill:'url( #Lin )',		
 		points: [
@@ -67,6 +67,7 @@
 		]
 	}
 
+	 */
 </script>
 <Flex props={{ list:1, center:true}}>
 	<svg viewBox="-200 0 400 90" height=100% xmlns:svg="http://www.w3.org/2000/svg">
@@ -91,6 +92,7 @@
 				<stop stop-color="var(--blue)" offset="1"/>
 			</linearGradient>
 		</defs>
+		<!--
 		<a href=#Install>
 			<TrapZ data={ LeftLink } >
 				<TrapZ data={ LeftInner }>
@@ -105,6 +107,7 @@
 				</TrapZ>
 			</TrapZ>
 		</a>
+		-->
 		<a href=#Home>
 			<TrapZ data={ Logo }>
 				<TrapZ data={ LogoInnerLeft }>

@@ -46,7 +46,7 @@
 		</def>
 		<TrapZ data={ Footer } >
 			<TrapZ data={ FooterEdge }>
-				<a id=Github>
+				<a id=Github href='https://github.com/FractalMatt/Flogram-Core-Compiler'>
 					<GitHub data={ Footer.inner[0] }/>
 				</a>
 				<a id=Discord href='https://discord.gg/TM4jp3nyMs'>
