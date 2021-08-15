@@ -30,7 +30,7 @@
 	}
 
 </script>
-<Flex props={{list:1, right:true}}>
+<Flex props={{list:1, center:false, right:true}}>
 	<svg id="FooterBottom" viewBox="-200 0 400 100" height=100% xmlns:svg="http://www.w3.org/2000/svg" >		
 		<def>
 			<linearGradient id=Lin2 x1=0 x2=0 y1=0 y2=1>
