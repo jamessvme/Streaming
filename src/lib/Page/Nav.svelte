@@ -33,42 +33,42 @@
 	const LeftLink = {
 		fill:'url( #Lin )',		
 		points: [
-			[-200, 15], 
-			[-150, 80], 
-			[-50, 80], 
-			[0, 15]
+			[-200, 80], 
+			[-150, 15], 
+			[-50, 15], 
+			[0, 80]
 		]
 	}
 	const LeftInner = {
 		fill:'url( #Edges2 )',
 		points: [
-			[-200, 15], 
-			[-150, 80], 
-			[-50, 80], 
-			[0, 15]
+			[-200, 80], 
+			[-150, 15], 
+			[-50, 15], 
+			[0, 80]
 		]
 	}
 	const RightLink = {
 		fill:'url( #Lin )',		
 		points: [
-			[200, 15], 
-			[150, 80], 
-			[50, 80], 
-			[0, 15]
+			[200, 80], 
+			[150, 15], 
+			[50, 15], 
+			[0, 80]
 		]
 	}
 	const RightInner = {
 		fill:'url( #Edges )',
 		points: [
-			[200, 15], 
-			[150, 80], 
-			[50, 80], 
-			[0, 15]
+			[200, 80], 
+			[150, 15], 
+			[50, 15], 
+			[0, 80]
 		]
 	}
 
 </script>
-<Flex list=1 center>
+<Flex props={{ list:1, center:true}}>
 	<svg viewBox="-200 0 400 90" height=100% xmlns:svg="http://www.w3.org/2000/svg">
 		<defs>
 			<linearGradient id=Edges x1=0 x2=.9 y1=0 y2=.8>

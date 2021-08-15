@@ -6,6 +6,10 @@
 		--blue:#A3E7FC;
 		--black:#000100;
 		--white:ghostwhite;
+
+	/*gradients*/
+		--w2b:linear-gradient( var( --white) 63%, var( --blue ));
+		--g2w:linear-gradient( var( --green) 63%, var( --white));
 	/*Logo*/	
 		--colorLogo:var(--white);
 		--fontLogo:Arial;
@@ -27,12 +31,12 @@
 	flex-direction:column;
 }
 .heading{
-	font: bold 4.5vmin 'Arial', sans serif; 
+	font: bold 3.5vmin 'Arial', sans serif; 
 }
 .heading2{
-	font: bold 3vmin 'Arial', sans serif; 
+	font: bold 2.5vmin 'Arial', sans serif; 
 }
 body{
 	overflow:hidden;
-	background:var(--green);
+	background:var(--g2w );
 }

@@ -1,4 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="559.028" height="427.021" viewBox="0 0 559.028 427.021">
+<script>
+	export let props = { h:'100%', w:'100%'}
+</script>
+<svg xmlns="http://www.w3.org/2000/svg" width={props.h} height={props.w} viewBox="0 0 559.028 427.021">
   <defs>
     <linearGradient id="linear-gradient" x1="-0.25" y1="0.5" x2="1.25" y2="0.5" gradientUnits="objectBoundingBox">
       <stop offset="0" stop-color="#0ab3c4"/>

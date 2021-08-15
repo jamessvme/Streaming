@@ -6,7 +6,9 @@
 <nav>
 	<Nav/>
 </nav>
-<slot></slot>
+<main>
+	<slot></slot>
+</main>
 <footer>
 	<Foot/>
 </footer>
@@ -18,6 +20,13 @@
 		top:0;
 		left:0;
 		z-index:1;
+	}
+	main {
+		height:100vh;
+		width:101.5vw;
+		overflow-x:hidden;
+		overflow-y:auto;
+		scroll-snap-type:y mandatory;
 	}
 	footer{
 		position:absolute;
