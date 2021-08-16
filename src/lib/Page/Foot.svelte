@@ -30,9 +30,9 @@
 	}
 
 </script>
-<Flex props={{list:1, center:false, right:true}}>
+<Flex props={{list:1, right:true }}>
 	<svg id="FooterBottom" viewBox="-200 0 400 100" height=100% xmlns:svg="http://www.w3.org/2000/svg" >		
-		<def>
+		<defs>
 			<linearGradient id=Lin2 x1=0 x2=0 y1=0 y2=1>
 				<stop offset="-15%" stop-opacity='10%' stop-color='var( --pink )'/>
 				<stop offset="15%" stop-opacity='100%' stop-color='var( --purple )'/>
@@ -43,7 +43,7 @@
 				<stop offset="85%" stop-opacity='35%' stop-color='var( --purple )'/>
 				<stop offset="115%" stop-opacity='20%' stop-color='var( --pink )'/>
 			</linearGradient>
-		</def>
+		</defs>
 		<TrapZ data={ Footer } >
 			<TrapZ data={ FooterEdge }>
 				<a id=Github href='https://github.com/FractalMatt/Flogram-Core-Compiler'>

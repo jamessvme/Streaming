@@ -1,8 +1,8 @@
 <script>	
 	export let props = {};
-	const { list=4, stack=false, center=true, right=false, left=false }= props;
+	const { list=4, stack=false, center=true, right=false  }= props;
 </script>
-<sect  class:stack class:center class:right class:left>
+<sect  class:stack class:center class:right>
 	{ #each Array(list) as _, i (i) }
 		<slot>
 			<h3>Text</h3>
@@ -22,13 +22,10 @@
 		flex-direction:column;
 	}
 	.center {
-		justify-content: space-around;
+		justify-content:space-around;
 	}
 	.right {
-		justify-content: end;
-	}
-	.left {
-		justify-content: start;
+		flex-direction:row-reverse;
 	}
 </style>
 
