@@ -16,7 +16,7 @@
 			cmp:Banner, 
 			props:{ 
 				heading: 'Flogram',
-				caption: '',
+				caption: 'Build Fast Programs Fast',
 				image: LapTop,
 				size: { h:'100%', w:'75%' }
 		  	}
