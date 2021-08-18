@@ -1,10 +1,10 @@
 <script>	
 	export let props = {};
-	const { list=4, stack=false, center=true, right=false  }= props;
+	const { fill=Array(4), stack=false, center=true, right=false  }= props;
 </script>
 <sect  class:stack class:center class:right>
-	{ #each Array(list) as _, i (i) }
-		<slot>
+	{ #each fill as val, i (i) }
+		<slot name=val { val }>
 			<h3>Text</h3>
 		</slot>
 	{ /each }

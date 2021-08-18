@@ -17,8 +17,8 @@
 </figure>
 <style>
 	figure {
-		height:45vh;
-		width:100vw;
+		height:100%;
+		width:var(--width);
 		display:flex;
 		justify-content:center;
 		align-content:center;
@@ -27,7 +27,15 @@
 		color:var(--purple);
 		font-weight:bold;
 	}
+	figcaption{
+		width:65%;
+		display:flex;
+		flex-direction:column;
+		justify-content:center
+	}
 	picture {
 		height:100%;
+		display:flex;
+		flex-direction:row-reverse;
 	}
 </style>

@@ -2,14 +2,14 @@
 	import Snap from "$lib/Containers/Snap.svelte";
 
 	import LapTop from "$lib/svg/LapTop.svelte";
-	import Machine from "$lib/svg/Machine.svelte";
 
 	import Banner from "$lib/Page/Home/Banner.svelte";
 	import Sect3 from "$lib/Page/Home/Section3.svelte";
-	import TypeWriter from "$lib/animation/TypeWriter.svelte";
+
+	/*import TypeWriter from "$lib/animation/TypeWriter.svelte";
 
 	const txtToFill = "Build fast programs faster";
-	const delay = 0;
+	const delay = 0;*/
 	
 	let components = [ 
 		{ 
@@ -23,52 +23,47 @@
 		},
 		{ 
 			cmp:Sect3, 
-			props:{ 
-				caption:'',
-				cards: [
+			props: {
+				fill: [
 					{ 
-						heading:'High Productivity',
-						list:[
+						heading:'High Productivity', 
+						list: [ 	
 							'Simple mental model',
 							'Simplify debugging',
 							'Improve readability',
 							'Acyclical data structures',
 						],
-						d:{h:'33vh', w:'28vw', t:'13vh'}
+						d: { height:'33vh', width:'28vw', marginTop:'13vh' },
 					},
-					{
-						heading:'High Performance',
-						list:[
+					{ 
+						heading:"High Performance", 
+						list: [
 							'No garbage collector (GC)',
 							'Allocate memory in bulk',
 							'Automatic threading',
 							'Automatic async',
 							'Automatic ownership',
 							'~3x less memory than GC',
-						],
-						d:{h:'40vh', w:'31vw'}
+						],			
+						d:{ height:'40vh', width:'31vw' }
 					},
-					{
+					{ 
 						heading:'High Security',
-						list:[
+						list: [
 							'Memory Safe',
 							'Thread Safe',
 							'Type Safe',
 							'No Nulls'
 						],
-						d:{h:'33vh', w:'28vw', t:'13vh' }
-					}
-				]
-			}
+						d: { height:'33vh', width:'28vw', marginTop:'13vh' },
+					},
+				],
+			},
 		},
 	];
 </script>
-<Snap { components }>
-	<svelte:fragment slot='component' let:component></svelte:fragment>
+<Snap { components } --padding="0 3vw" --background="var( --g2w )">
+	<svelte:fragment slot='component' let:component>
+		<svelte:component this={ component.cmp } props={ component.props }/>
+	</svelte:fragment>
 </Snap>
-<style>
-	picture{
-		height:100%;
-		width:100%;
-	}
-</style>

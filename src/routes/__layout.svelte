@@ -22,19 +22,22 @@
 		z-index:1;
 	}
 	main {
+		position:absolute;
+		top:0;
+		left:0;
 		height:100vh;
 		width:101.5vw;
+		padding-right:1.5vw;
 		overflow-x:hidden;
 		overflow-y:auto;
 		scroll-snap-type:y mandatory;
 	}
 	footer{
 		position:absolute;
-		bottom:0;
 		height:9vh;
 		width:100vw;
 		bottom:-2vh;
-		left:0;
+		right:0;
 		z-index:1;
 	}
 </style>

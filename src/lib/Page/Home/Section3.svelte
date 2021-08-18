@@ -1,21 +1,20 @@
 <script>
-	import Flex from "$lib/Containers/Flex2.svelte"
+	import Flex from "$lib/Containers/Flex.svelte"
 	import Card from "$lib/Containers/Card.svelte"
 
 	export let props = {};
-	let { caption, cards } = props;
 </script>
-<Flex props={{list:1, center:true}}>
-	{#each cards as card }
-		<Card --height={ card.d.h } --width={ card.d.w } --top={ card.d.t }>
-			<h1 slot=heading>{ card.heading }</h1>
+<Flex { props }>
+	<svelte:fragment slot=val let:val>
+		<Card --height={ val.d.height } --width={ val.d.width } --top={ val.d.marginTop }>
+			<h1 slot=heading>{ val.heading }></h1>
 			<ul slot=caption>
-				{#each card.list as item }	
-					<li>{item}</li>
-				{/each}
-			<ul>
+				{ #each val.list as item, i (i) }
+					<li>{ item }</li>
+				{ /each }
+			</ul>
 		</Card>
-	{/each}
+	</svelte:fragment>
 </Flex>
 <style>
 	h1{
@@ -24,6 +23,8 @@
 		color:var(--green);
 	}
 	ul{
+		display:flex;
+		flex-direction:column;
 		padding-left:2vw;
 		color:var(--green);
 
