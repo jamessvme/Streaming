@@ -1,6 +1,6 @@
 <script>	
 	export let props = {};
-	const { fill=Array(4), stack=false, center=true, right=false  }= props;
+	const { fill=Array(4) } = props;
 </script>
 <sect>
 	{ #each fill as val, i (i) }
