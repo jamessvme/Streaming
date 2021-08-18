@@ -69,7 +69,7 @@
 
 	 */
 </script>
-<Flex props={{ fill:Array(1), center:true}}>
+<Flex props={{ fill:Array(1) }} --justify=center>
 	<svelte:fragment slot=val let:val>
 		<svg viewBox="-200 0 400 90" height=100% xmlns:svg="http://www.w3.org/2000/svg">
 			<defs>

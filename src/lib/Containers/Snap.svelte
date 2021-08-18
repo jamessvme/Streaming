@@ -1,7 +1,6 @@
 <script>
 	import LapTop from "$lib/svg/LapTop.svelte";
 	export let components = [];
-	$:console.log(components);
 </script>
 { #each components as component, i (i) }
  	<section>

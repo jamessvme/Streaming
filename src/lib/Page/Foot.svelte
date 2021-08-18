@@ -30,7 +30,7 @@
 	}
 
 </script>
-<Flex props={{ fill:Array(1), center:false, right:true }}>
+<Flex props={{ fill:Array(1) }} --direction="row-reverse" --background="blue" >
 	<svelte:fragment slot=val let:val>
 		<svg id="FooterBottom" viewBox="-200 0 400 100" height=100% xmlns:svg="http://www.w3.org/2000/svg" >		
 			<defs>
