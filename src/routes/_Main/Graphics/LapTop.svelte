@@ -1,5 +1,6 @@
 <script>
-	export let props = { h:'100%', w:'100%'}
+	export let data = {};
+	const { height='100%', width='100%' } = data;
 </script>
 
 <svg
@@ -7,8 +8,8 @@
    id="LapTopSvg"
    viewBox="-90 0 300 200"
    class="svelte-1slfwqg"
-   width={ props.w }
-   height={ props.h }
+   { width }   
+   { height }
 				>
 <defs id="defs1050">
     <filter

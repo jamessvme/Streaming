@@ -11,6 +11,7 @@
 		],
 	}
 	const { intervals,  fill, points, stroke } = data;
+
 </script>
 <polygon { points }{ fill }{ stroke }/>
 {#each Array( intervals ) as _,i} 

@@ -1,76 +1,87 @@
 <script>
 	import Flex from "$lib/Containers/Flex.svelte";
-	import TrapZ from "$lib/svg/Trapezoid.svelte";
+	import TrapZ from "$lib/Vector/Trapezoid.svelte";
 
-	const Logo = {
-		fill:'url( #Lin )',
-		points: [
-			[-100, 0], 
-			[-50, 90], 
-			[50, 90], 
-			[100, 0]
-		]
-	}
-	const LogoInnerRight = {
-		fill:'url( #Edges )',
-		points: [
-			[ -100, 0 ], 
-			[ -50, 90 ], 
-			[ 50, 90 ], 
-			[ 100, 0 ]
-		]
-	}
-	const LogoInnerLeft = {
-		fill:'url( #Edges2 )',
-		points: [
-			[ -100, 0 ], 
-			[ -50, 90 ], 
-			[ 50, 90 ], 
-			[ 100, 0 ]
-		]
-	}
-	/*
-	const LeftLink = {
-		fill:'url( #Lin )',		
-		points: [
-			[-200, 80], 
-			[-150, 15], 
-			[-50, 15], 
-			[0, 80]
-		]
-	}
-	const LeftInner = {
-		fill:'url( #Edges2 )',
-		points: [
-			[-200, 80], 
-			[-150, 15], 
-			[-50, 15], 
-			[0, 80]
-		]
-	}
-	const RightLink = {
-		fill:'url( #Lin )',		
-		points: [
-			[200, 80], 
-			[150, 15], 
-			[50, 15], 
-			[0, 80]
-		]
-	}
-	const RightInner = {
-		fill:'url( #Edges )',
-		points: [
-			[200, 80], 
-			[150, 15], 
-			[50, 15], 
-			[0, 80]
-		]
-	}
+	const props = {
+		"justify-content":"center"
+	};
 
-	 */
+	const slots = [
+		{ 
+			Logo: {
+				Main:{
+					fill:'url( #Lin )',
+					points: [
+						[-100, 0], 
+						[-50, 90], 
+						[50, 90], 
+						[100, 0]
+					]
+				},
+				Right : {
+					fill:'url( #Edges )',
+					points: [
+						[ -100, 0 ], 
+						[ -50, 90 ], 
+						[ 50, 90 ], 
+						[ 100, 0 ]
+					]
+				},
+				Left : {
+					fill:'url( #Edges2 )',
+					points: [
+						[ -100, 0 ], 
+						[ -50, 90 ], 
+						[ 50, 90 ], 
+						[ 100, 0 ]
+					]
+				},
+			},
+			LeftLink : {
+				Main: {
+					fill:'url( #Lin )',		
+					points: [
+						[-200, 80], 
+						[-150, 15], 
+						[-50, 15], 
+						[0, 80]
+					]
+				},
+				Inner : {
+					fill:'url( #Edges2 )',
+					points: [
+						[-200, 80], 
+						[-150, 15], 
+						[-50, 15], 
+						[0, 80]
+					]
+				},
+			},
+			RightLink : {
+				Main: {
+					fill:'url( #Lin )',		
+					points: [
+						[200, 80], 
+						[150, 15], 
+						[50, 15], 
+						[0, 80]
+					]
+				},
+				Inner : {
+					fill:'url( #Edges )',
+					points: [
+						[200, 80], 
+						[150, 15], 
+						[50, 15], 
+						[0, 80]
+					]
+				},
+			}
+		}
+	];
 </script>
-<Flex props={{ fill:Array(1) }} --justify=center>
-	<svelte:fragment slot=val let:val>
+<Flex { props } { slots }>
+	<svelte:fragment slot=data let:data>
 		<svg viewBox="-200 0 400 90" height=100% xmlns:svg="http://www.w3.org/2000/svg">
 			<defs>
 				<linearGradient id=Edges x1=0 x2=.9 y1=0 y2=.8>
@@ -93,7 +104,7 @@
 					<stop stop-color="var(--blue)" offset="1"/>
 				</linearGradient>
 			</defs>
-			<!--
+		<!--
 			<a href=#Install>
 				<TrapZ data={ LeftLink } >
 					<TrapZ data={ LeftInner }>
@@ -110,9 +121,9 @@
 			</a>
 			-->
 			<a href=#Home>
-				<TrapZ data={ Logo }>
-					<TrapZ data={ LogoInnerLeft }>
-						<TrapZ data={ LogoInnerRight }>
+				<TrapZ data={ data.Logo.Main }>
+					<TrapZ data={ data.Logo.Left }>
+						<TrapZ data={ data.Logo.Right }>
 							<text class='heading' x='0' y='50' text-anchor=middle fill='url( #IceGra )'>Flogram</text>
 						</TrapZ>
 					</TrapZ>

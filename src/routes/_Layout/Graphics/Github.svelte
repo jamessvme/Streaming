@@ -1,6 +1,6 @@
 <script>
-	export let data =  [ '100%','100%', '100', '0'];
-	const [ width, height, x, y ] = data;
+	export let data = {};
+	const { width='100%', height='100%', x=0, y=0 } = data;
 </script>
 <svg 
 	xmlns="http://www.w3.org/2000/svg"

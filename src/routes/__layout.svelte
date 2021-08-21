@@ -1,7 +1,7 @@
 <script>
 	import '../app.css';
-	import Nav from "$lib/Page/Nav.svelte";
-	import Foot from "$lib/Page/Foot.svelte";
+	import Nav from "./_Layout/Nav.svelte";
+	import Foot from "./_Layout/Foot.svelte";
 </script>
 <nav>
 	<Nav/>
@@ -26,11 +26,8 @@
 		top:0;
 		left:0;
 		height:100vh;
-		width:101.5vw;
-		padding-right:1.5vw;
-		overflow-x:hidden;
-		overflow-y:auto;
-		scroll-snap-type:y mandatory;
+		width:100vw;
+		overflow:hidden;
 	}
 	footer{
 		position:absolute;

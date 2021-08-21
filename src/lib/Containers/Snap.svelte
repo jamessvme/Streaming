@@ -1,24 +1,30 @@
 <script>
-	import LapTop from "$lib/svg/LapTop.svelte";
+	export let props = {}
 	export let components = [];
+	$: style = Object.entries( props ).map( arr => arr.join( ':' )).join(';'); 
+
 </script>
-{ #each components as component, i (i) }
- 	<section>
-		<slot name=component { component }>
-			<svelte:component this={ component.cmp } props={ componet.props }/>
-		</slot>
-	</section>
-{ /each }
+<div id=SnapContainer { style }>
+	{ #each components as component, i (i) }
+		<section>
+			<svelte:component this={ component }/>
+		</section>
+	{ /each }
+</div>
 <style>
+	#SnapContainer {
+		height:100%;
+		width:102%;
+		overflow-y:auto;
+		scroll-snap-type:y mandatory;
+	}
 	section { 
 		height:100%;
-		width:100vw;
+		width:99%;
 		scroll-snap-align:start;
 		overflow:hidden;
 		display:flex;
-		flex-direction:column;
 		justify-content:center;
 		align-items:center;
-		background:var(--background);
 	}
 </style>

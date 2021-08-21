@@ -1,37 +1,43 @@
 <script>
 	import Flex from "$lib/Containers/Flex.svelte";
-	import TrapZ from "$lib/svg/Trapezoid.svelte";
-	import GitHub from "$lib/svg/icons/Github.svelte";
-	import Discord from "$lib/svg/icons/Discord.svelte";
+	import TrapZ from "$lib/Vector/Trapezoid.svelte";
+	import GitHub from "./Graphics/Github.svelte";
+	import Discord from "./Graphics/Discord.svelte";
 
-	const Footer = {
-		interval:3,
-		fill:'url(#Lin2)',		
-		points: [
-			[-200, 100], 
-			[-125, 0], 
-			[200, 0], 
-			[200, 100]
-		],
-		inner: [
-			[ '100%', '80%', '-100', '5' ],
-			[ '100%', '88%', '-230', '0' ],
-		]
+	const props = {
+		"flex-direction":"row-reverse"
 	}
 
-	const FooterEdge = {
-		fill:'url(#Edges3)',		
-		points: [
-			[-200, 100], 
-			[-125, 0], 
-			[200, 0], 
-			[200, 100]
-		],
-	}
-
+	const slots = [ 
+		{
+			Main: {
+				interval:3,
+				fill:'url(#Lin2)',		
+				points: [
+					[-200, 100], 
+					[-125, 0], 
+					[200, 0], 
+					[200, 100]
+				],
+			},
+			Edge : {
+				fill:'url(#Edges3)',		
+				points: [
+					[-200, 100], 
+					[-125, 0], 
+					[200, 0], 
+					[200, 100]
+				],
+			},
+			icons: [
+				{ width:'100%', height:'80%', x:'-100', y:'5' },
+				{ width:'100%', height:'88%', x:'-230', y:'0' },
+			]
+		}
+	]
 </script>
-<Flex props={{ fill:Array(1) }} --direction="row-reverse">
-	<svelte:fragment slot=val let:val>
+<Flex { props }{ slots } >
+	<svelte:fragment slot=data let:data>
 		<svg id="FooterBottom" viewBox="-200 0 400 100" height=100% xmlns:svg="http://www.w3.org/2000/svg" >		
 			<defs>
 				<linearGradient id=Lin2 x1=0 x2=0 y1=0 y2=1>
@@ -45,13 +51,13 @@
 					<stop offset="115%" stop-opacity='20%' stop-color='var( --pink )'/>
 				</linearGradient>
 			</defs>
-			<TrapZ data={ Footer } >
-				<TrapZ data={ FooterEdge }>
+			<TrapZ data={ data.Main } >
+				<TrapZ data={ data.Edge }>
 					<a id=Github href='https://github.com/FractalMatt/Flogram-Core-Compiler'>
-						<GitHub data={ Footer.inner[0] }/>
+						<GitHub data={ data.icons[0] }/>
 					</a>
 					<a id=Discord href='https://discord.gg/TM4jp3nyMs'>
-						<Discord data={ Footer.inner[1] }/>
+						<Discord data={ data.icons[1] }/>
 					</a>
 				</TrapZ>
 			</TrapZ>

@@ -1,4 +1,8 @@
-<figure>
+<script>
+	export let props = {};
+	$: style = Object.entries( props ).map( arr => arr.join( ':' )).join(';'); 
+</script>
+<figure { style }>
 	<figcaption>
 		<slot name=heading>
 			<h1>Heading<h1>

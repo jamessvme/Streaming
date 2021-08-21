@@ -1,24 +1,24 @@
 <script>	
 	export let props = {};
-	const { fill=Array(4) } = props;
+	export let slots = Array(1);
+
+	$: style = Object.entries( props ).map( arr => arr.join( ':' )).join(';'); 
 </script>
-<sect>
-	{ #each fill as val, i (i) }
-		<slot name=val { val }>
+
+<div class=flex { style }>
+	{ #each slots as data, i (i) }
+		<slot name=data { data }>
 			<h3>Text</h3>
 		</slot>
 	{ /each }
-</sect>
+</div>
 <style>
-	sect {
+	.flex {
 		height:100%;
 		width:100%;
 		display:flex;
 		align-items:center;
 		align-content:center;
-		flex-direction:var( --direction );
-		justify-content:var( --justify );
-		background:var(--background);
 	}	
 </style>
 
