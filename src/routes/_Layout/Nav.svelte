@@ -2,87 +2,69 @@
 	import Flex from "$lib/Containers/Flex.svelte";
 	import TrapZ from "$lib/Vector/Trapezoid.svelte";
 
-	const props = {
-		"justify-content":"center"
+	export let styles = {
+		"--justify":"center"
 	};
 
-	const slots = [
-		{ 
-			Logo: {
-				Main:{
-					fill:'url( #Lin )',
-					points: [
-						[-100, 0], 
-						[-50, 90], 
-						[50, 90], 
-						[100, 0]
-					]
-				},
-				Right : {
-					fill:'url( #Edges )',
-					points: [
-						[ -100, 0 ], 
-						[ -50, 90 ], 
-						[ 50, 90 ], 
-						[ 100, 0 ]
-					]
-				},
-				Left : {
-					fill:'url( #Edges2 )',
-					points: [
-						[ -100, 0 ], 
-						[ -50, 90 ], 
-						[ 50, 90 ], 
-						[ 100, 0 ]
-					]
-				},
+	export let viewBox = "-200 0 400 90";
+
+	export let slots = [
+		[
+			{
+				points: [
+					[-200, 56], 
+					[-145, 10], 
+					[-45, 10], 
+					[0, 56]
+				],
+				margin:[-10,8],
+				gradients: [
+					'url( #Lin )',		
+					'url( #Edges2 )',
+				],
+				links:[
+					{ id:'InstallLink', href:'#Install', text:'Install', vertical:false },
+				],
 			},
-			LeftLink : {
-				Main: {
-					fill:'url( #Lin )',		
-					points: [
-						[-200, 80], 
-						[-150, 15], 
-						[-50, 15], 
-						[0, 80]
-					]
-				},
-				Inner : {
-					fill:'url( #Edges2 )',
-					points: [
-						[-200, 80], 
-						[-150, 15], 
-						[-50, 15], 
-						[0, 80]
-					]
-				},
+			{
+				points: [
+					[200, 56], 
+					[145, 10], 
+					[45, 10], 
+					[0, 56]
+				],
+				margin:[10,8],
+				gradients: [
+					'url( #Lin )',		
+					'url( #Edges )',
+				],
+				links:[
+					{ id:'DocsLink', href:'./Docs', text:'Docs', vertical:false},
+				],
 			},
-			RightLink : {
-				Main: {
-					fill:'url( #Lin )',		
-					points: [
-						[200, 80], 
-						[150, 15], 
-						[50, 15], 
-						[0, 80]
-					]
-				},
-				Inner : {
-					fill:'url( #Edges )',
-					points: [
-						[200, 80], 
-						[150, 15], 
-						[50, 15], 
-						[0, 80]
-					]
-				},
-			}
-		}
+			{
+				points: [
+					[-90, 0], 
+					[-45, 70], 
+					[45, 70], 
+					[90, 0],
+				],
+				margin:[0,0],
+				gradients: [ 
+					'url( #Lin )',
+					'url( #Edges )',
+					'url( #Edges2 )'
+				],
+				links:[
+					{ id:'Logo', href:'/', text:'Flogram', vertical:false},
+				],
+			},
+		],
 	];
 </script>
-<Flex { props } { slots }>
-	<svelte:fragment slot=data let:data>
-		<svg viewBox="-200 0 400 90" height=100% xmlns:svg="http://www.w3.org/2000/svg">
+<Flex { styles } { slots }>
+	<svelte:fragment slot=cell let:cell>
+		<svg { viewBox } height=100% xmlns:svg="http://www.w3.org/2000/svg">
 			<defs>
 				<linearGradient id=Edges x1=0 x2=.9 y1=0 y2=.8>
 					<stop offset="75%" stop-opacity='0%' stop-color='var( --purple )'/>
@@ -104,31 +86,22 @@
 					<stop stop-color="var(--blue)" offset="1"/>
 				</linearGradient>
 			</defs>
-		<!--
-			<a href=#Install>
-				<TrapZ data={ LeftLink } >
-					<TrapZ data={ LeftInner }>
-						<text x='-120' y='53' class='heading2' text-anchor=middle fill='url( #IceGra )'>Install</text>
+			{ #each slots[0] as link, i (i)}
+				<a id={ link.links[0].id } href={ link.links[0].href } class:vertical={ link.links[0].vertical }>
+					<TrapZ props={ link }>
+						<svelte:fragment slot=vector let:vector>
+							<text class='heading' x={ vector.cx } y={ vector.cy } text-anchor=middle fill='url( #IceGra )'>{ link.links[0].text }</text>
+						</svelte:fragment>
 					</TrapZ>
-				</TrapZ>
-			</a>
-			<a href=./docs>
-				<TrapZ data={ RightLink }>
-					<TrapZ data={ RightInner }>
-						<text x='120' y='53' class='heading2' text-anchor=middle fill='url( #IceGra )'>Docs</text>
-					</TrapZ>
-				</TrapZ>
-			</a>
-			-->
-			<a href=#Home>
-				<TrapZ data={ data.Logo.Main }>
-					<TrapZ data={ data.Logo.Left }>
-						<TrapZ data={ data.Logo.Right }>
-							<text class='heading' x='0' y='50' text-anchor=middle fill='url( #IceGra )'>Flogram</text>
-						</TrapZ>
-					</TrapZ>
-				</TrapZ>
-			</a>
+				</a>
+			{ /each }
 		</svg>
 	</svelte:fragment>
 </Flex>
+<style>
+	.vertical {
+		writing-mode:vertical-rl; 
+		text-orientation:upright;
+		letter-spacing:-.9vh;
+	}
+</style>

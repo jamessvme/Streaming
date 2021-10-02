@@ -20,6 +20,9 @@
 		--shadow:var(--blue) 3px 3px 3px;
 	/*Component*/
 		--footerJustify: end;
+
+	/* new classes */
+		--font: 2.7vmin "Arial", sans-serif;
 }	
 
 .flexRow{
@@ -31,10 +34,10 @@
 	flex-direction:column;
 }
 .heading{
-	font: bold 3.5vmin 'Arial', sans serif; 
+	font: bold 2.3vmin 'Arial', sans serif; 
 }
 .heading2{
-	font: bold 2.5vmin 'Arial', sans serif; 
+	font: bold 2vmin 'Arial', sans serif; 
 }
 body{
 	overflow:hidden;

@@ -15,7 +15,7 @@
 <style>
 	nav {
 		position:absolute;
-		height:10vh;
+		height:9vh;
 		width:100vw;
 		top:0;
 		left:0;
@@ -31,7 +31,7 @@
 	}
 	footer{
 		position:absolute;
-		height:9vh;
+		height:7vh;
 		width:100vw;
 		bottom:-2vh;
 		right:0;

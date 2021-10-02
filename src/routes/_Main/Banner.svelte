@@ -1,19 +1,31 @@
 <script>
+	import Card from "$lib/Containers/Card.svelte";
 	import Figure from "$lib/Containers/Figure.svelte";
 	import LapTop from "./Graphics/LapTop.svelte";
 
-	const props = {
-		width:'80%'
+	const styles = {
+		'--width':'60%',
+		'--height':'40%',
+		'--direction':'row',
+		'--color':'var( --purple )',
+		'--justify':'center',
+		'--align':'center',
 	}
 
 	const data = {
 		height:'100%', 
-		width:'75%' 
+		width:'100%' 
 	}
 </script>
-<Figure { props }>
-	<h1 slot=heading>Flogram</h1>
-	<p slot=caption>Build Fast Programs Fast</p>		
-	<LapTop slot=image { data }/>
-</Figure>
-
+<Card { styles }>
+	<svelte:fragment slot=content>
+		<h1>Flogram</h1>
+		<p>A high performance language that's simple and secure</p>		
+	</svelte:fragment>
+	<LapTop slot=mediaB { data }/>
+</Card>
+<style>
+	p {
+		margin:0;
+	}
+</style>

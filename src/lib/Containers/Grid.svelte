@@ -1,40 +1,28 @@
 <script>
-	import Card from "$lib/Containers/Card.svelte";
+	import Card from '$lib/Containers/Card.svelte';
 
-	export let props = { rows:3, cols:2 };
+	let props = {
+		'--area':"'a a a' 'b b c' 'b b c'",
+	};
 
- 	const drawGrid = ({ rows, cols } = { rows:2, cols:2 }) => Array.from(
-		{ length: rows }, 
-		( _, row ) => Array.from(
-			{ length: cols }, 
-			( _, col ) => {
-				return { r:row+1, c:col+1 }
-			}
-		)
-	);
+	let cells = [ 'a','b','c' ];
 
-	$: cells = drawGrid( props );
+	$: style = Object.entries( props ).map( arr => arr.join( ':' )).join(';'); 
 </script>
-<div class="wrapper">
+<div id="Grid" { style }>
 	{ #each cells as cell }
 		<slot name=cell {cell}>
-			<Card class="cell"	--row={ cell.r } --column={ cell.c }>
-				<h1>Cell Heading</h1>
-				<p>Cell Description</p>
-			</Card>
+			<div style='grid-area:{cell}; border:thick solid white'>
+				<Card>
+					<h1 slot=heading>{cell}</h1>
+				</Card>
+			</div>
 		</slot>
- 	{ /each }
+	{ /each }
 </div>
 <style>
-	.wrapper {
-	  display: grid;
-	  grid-template-columns: repeat(2,1fr);
-	  gap: 10px;
-	  grid-auto-rows: minmax(100px, auto);
-	}
-	.cell {
-		grid-column:var(--column);
-		grid-row:var(--row);
-		background:var(--dark);
+	#Grid {
+	  	display: grid;
+		grid-template-areas:var(--area);
 	}
 </style>

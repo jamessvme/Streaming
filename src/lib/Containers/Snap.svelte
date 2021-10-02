@@ -1,16 +1,19 @@
 <script>
-	export let props = {}
+	export let styles = {}
+	export let sections = Array(1);
+
 	export let components = [];
-	$: style = Object.entries( props ).map( arr => arr.join( ':' )).join(';'); 
+
+	$: style = Object.entries( styles ).map( arr => arr.join( ':' )).join(';'); 
 
 </script>
-<div id=SnapContainer { style }>
-	{ #each components as component, i (i) }
-		<section>
-			<svelte:component this={ component }/>
-		</section>
+<section id=SnapContainer { style }>
+	{ #each sections as section, i (i) }
+		<a id={  section.id } name={ section.id }>
+			<slot name=section { section }>Slot</slot>
+		</a>
 	{ /each }
-</div>
+</section>
 <style>
 	#SnapContainer {
 		height:100%;
@@ -18,12 +21,13 @@
 		overflow-y:auto;
 		scroll-snap-type:y mandatory;
 	}
-	section { 
+	a { 
 		height:100%;
 		width:99%;
 		scroll-snap-align:start;
 		overflow:hidden;
 		display:flex;
+		flex-direction:column;
 		justify-content:center;
 		align-items:center;
 	}

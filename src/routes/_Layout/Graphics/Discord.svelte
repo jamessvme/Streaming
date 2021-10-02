@@ -1,6 +1,8 @@
 <script>
 	export let data =  {};
-	const { width='100%', height='100%', x=0, y=0 } = data;
+	let { width='100%', height='100%', x=0, y=0 } = data;
+
+	$:console.log(data);
 </script>
 <svg
    xmlns="http://www.w3.org/2000/svg"
