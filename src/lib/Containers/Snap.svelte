@@ -17,15 +17,14 @@
 <style>
 	#SnapContainer {
 		height:100%;
-		width:102%;
+		width:100%;
 		overflow-y:auto;
 		scroll-snap-type:y mandatory;
 	}
 	a { 
 		height:100%;
-		width:99%;
+		width:100%;
 		scroll-snap-align:start;
-		overflow:hidden;
 		display:flex;
 		flex-direction:column;
 		justify-content:center;

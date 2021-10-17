@@ -29,15 +29,14 @@
 		spaced:()=>Array.from(
 			{ length: props.links.length },
 			( _, i )=> [
-				i*intervals.Xintervals()+props.margin[0],
-				i*intervals.Yintervals()+props.margin[1],
+				inner[0][0]+i*intervals.Xintervals()+props.margin[0],
+				inner[1][0]+i*intervals.Yintervals()+props.margin[1],
 			]
 		),
 	}
-	$:console.log();
 
 	$: data = {
-		viewport: inner.map( arr => arr.join(' ')).join(' '),	
+		viewBox: `${ inner[0][0] }, ${ inner[1][0]}, ${ intervals.width }, ${ intervals.height }`,
 		slots: intervals.spaced().map(( val, i )=>{
 			return { 
 				id:props.links[i].id,
@@ -58,7 +57,8 @@
 			y:inner[1][0],
 			width:intervals.width,
 			height:intervals.height,
-		}
+		},
+		styles:{}
 	} 
 </script>
 { #each gradients as fill, i (i) }

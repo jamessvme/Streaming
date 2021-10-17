@@ -1,6 +1,5 @@
 <script>
 	import Card from "$lib/Containers/Card.svelte";
-	import Figure from "$lib/Containers/Figure.svelte";
 	import LapTop from "./Graphics/LapTop.svelte";
 
 	const styles = {
