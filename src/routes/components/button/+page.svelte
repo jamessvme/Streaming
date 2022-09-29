@@ -1,4 +1,5 @@
 <script>
+    import { faMailBulk, faArrowRight } from '@fortawesome/free-solid-svg-icons';
     import ComponentsLayout from "$lib/layouts/ComponentsLayout.svelte";
     import Button from "$lib/components/core/Button.svelte";
 </script>
@@ -83,5 +84,28 @@
                 </div>
             </div>
         </section>
+
+        <section name="button-with-icons">
+            <div class="flex flex-col gap-3">
+                <h1 class="text-2xl">Button with Icons</h1>
+
+                <div class="flex items-center gap-2">
+                    <Button colorScheme='teal' leftIcon={faMailBulk}>Button - leftIcon</Button>
+                    <Button colorScheme='teal' variant='outline' rightIcon={faArrowRight}>Button - rightIcon</Button>
+                </div>
+            </div>
+        </section>
+
+        <section name="button-is-loading">
+            <div class="flex flex-col gap-3">
+                <h1 class="text-2xl">Button loading state</h1>
+
+                <div class="flex items-center gap-2">
+                    <Button colorScheme='teal' leftIcon={faMailBulk} isLoading>Button - loading without text</Button>
+                    <Button colorScheme='teal' variant='outline' leftIcon={faMailBulk} loadingText='loading...' isLoading>Button - loading with text</Button>
+                </div>
+            </div>
+        </section>
+
     </div>
 </ComponentsLayout>

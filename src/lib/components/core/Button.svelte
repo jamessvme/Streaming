@@ -1,7 +1,14 @@
 <script type="ts">
-    export let colorScheme = 'gray';
-    export let size = 'md';
-    export let variant = 'soild';
+    import Fa from 'svelte-fa/src/fa.svelte';
+
+    export let colorScheme: string = 'gray';
+    export let size: string = 'md';
+    export let variant: string = 'soild';
+    export let leftIcon: any = null;
+    export let rightIcon: any = null;
+    export let loadingText: string = '';
+    export let isLoading: boolean = false;
+    export let disabled: boolean = false;
 
     const textColors = {
         'gray-600' : '!text-gray-600',
@@ -112,6 +119,9 @@
     const schemeF = schemes[colorScheme as keyof SchemeType];
     const sizeF = sizes[size as keyof SizeType];
     const variantF = variants[variant as keyof VariantType];
+    const leftIconF = leftIcon;
+    const rightIconF = rightIcon;
+    const disabledF = disabled || isLoading;
 </script>
 
 <div class={`
@@ -132,9 +142,45 @@
     px-4
     ${sizeF} 
     transition 
-    cursor-pointer 
+    ${disabledF ? 'cursor-not-allowed opacity-40' : 'cursor-pointer'} 
     ${schemeF} 
     ${variantF}`}
 >
-    <slot />
+
+    {#if isLoading}
+        <div class={`
+            inline-block 
+            border-t-2 
+            border-t-current 
+            border-r-2 
+            border-r-current 
+            border-b-2 
+            border-b-transparent 
+            border-l-2 
+            border-l-transparent 
+            animate-loading-fast 
+            rounded-full 
+            w-4 
+            h-4 
+            text-current 
+            ${loadingText ? 'mr-2' : ''}
+        `}>
+
+        </div>
+        {#if loadingText}
+            { loadingText }
+        {/if}
+    {:else}
+        <!-- left icon -->
+        {#if leftIconF}
+            <Fa icon={leftIconF} style="margin-right: 0.5rem;"></Fa>
+        {/if}
+
+        <slot />
+
+        <!-- right icon -->
+        {#if rightIconF}
+            <Fa icon={rightIconF} style="margin-left: 0.5rem;"></Fa>
+        {/if}
+    {/if}
 </div>
