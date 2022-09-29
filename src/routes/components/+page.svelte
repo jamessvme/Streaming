@@ -3,5 +3,5 @@
 </script>
 
 <ComponentsLayout>
-    This is component view for core and pages components
+    Component Menu
 </ComponentsLayout>
