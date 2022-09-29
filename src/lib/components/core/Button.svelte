@@ -4,16 +4,16 @@
     export let variant = 'soild';
 
     const textColors = {
-        'gray-600' : 'text-gray-600',
-        'red-600' : 'text-red-600',
-        'orange-600' : 'text-orange-600',
-        'yellow-600' : 'text-yellow-600',
-        'green-600' : 'text-green-600',
-        'teal-600' : 'text-teal-600',
-        'blue-600' : 'text-blue-600',
-        'cyan-600' : 'text-cyan-600',
-        'purple-600' : 'text-purple-600',
-        'pink-600' : 'text-pink-600',
+        'gray-600' : '!text-gray-600',
+        'red-600' : '!text-red-600',
+        'orange-600' : '!text-orange-600',
+        'yellow-600' : '!text-yellow-600',
+        'green-600' : '!text-green-600',
+        'teal-600' : '!text-teal-600',
+        'blue-600' : '!text-blue-600',
+        'cyan-600' : '!text-cyan-600',
+        'purple-600' : '!text-purple-600',
+        'pink-600' : '!text-pink-600',
     }
 
     const bgColors = {
