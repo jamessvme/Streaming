@@ -18,16 +18,16 @@
     }
 
     const borderColors = {
-        'gray-500' : 'border-gray-500',
-        'red-500' : 'border-red-500',
-        'orange-500' : 'border-orange-500',
-        'yellow-500' : 'border-yellow-500',
-        'green-500' : 'border-green-500',
-        'teal-500' : 'border-teal-500',
-        'blue-500' : 'border-blue-500',
-        'cyan-500' : 'border-cyan-500',
-        'purple-500' : 'border-purple-500',
-        'pink-500' : 'border-pink-500',
+        'gray-500' : '!border-gray-500',
+        'red-500' : '!border-red-500',
+        'orange-500' : '!border-orange-500',
+        'yellow-500' : '!border-yellow-500',
+        'green-500' : '!border-green-500',
+        'teal-500' : '!border-teal-500',
+        'blue-500' : '!border-blue-500',
+        'cyan-500' : '!border-cyan-500',
+        'purple-500' : '!border-purple-500',
+        'pink-500' : '!border-pink-500',
     }
 
     const handleClick = () => {
