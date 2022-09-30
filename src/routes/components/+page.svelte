@@ -14,6 +14,10 @@
             <Link href="/components/checkbox">
                 <Card title='Checkbox' content='Checkbox guide' />
             </Link>
+
+            <Link href="/components/iconbutton">
+                <Card title='IconButton' content='IconButton guide' />
+            </Link>
         </div>
     </div>
 </ComponentsLayout>

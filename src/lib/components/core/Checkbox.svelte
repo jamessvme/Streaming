@@ -40,37 +40,9 @@
     const colorSchemeF = `${bgColors[(colorScheme + '-500') as keyof BgColorType]} ${borderColors[(colorScheme + '-500') as keyof BorderColorType]} text-white`;
 </script>
 
-<div class={`
-    inline-flex 
-    items-center 
-    align-middle 
-    relative 
-    ${isDisabled ? 'cursor-not-allowed opacity-40' : 'cursor-pointer'}`}
-    on:click={() => !isDisabled && handleClick()}
->
-    <input 
-        type=checkbox 
-        bind:checked={value} 
-        disabled={isDisabled}
-        style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; white-space: nowrap; position: absolute;"
-    >
-    <span class={`
-        ${value || defaultChecked ? colorSchemeF : ''} 
-        w-4 
-        h-4 
-        transition-shadow 
-        duration-200 
-        border-2 
-        border-inherit 
-        rounded-sm 
-        text-white 
-        inline-flex 
-        items-center 
-        justify-center 
-        align-top 
-        select-none 
-        shrink-0`}
-    >
+<div class={`inline-flex items-center align-middle relative ${isDisabled ? 'cursor-not-allowed opacity-40' : 'cursor-pointer'}`} on:click={() => !isDisabled && handleClick()}>
+    <input type=checkbox bind:checked={value} disabled={isDisabled} style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; white-space: nowrap; position: absolute;">
+    <span class={`${value || defaultChecked ? colorSchemeF : ''} w-4 h-4 transition-shadow duration-200 border-2 border-inherit rounded-sm text-white inline-flex items-center justify-center align-top select-none shrink-0`}>
         <div style="display: flex; align-items: center; justify-content: center; width: 12px; height: 100%; transform: none;">
             <svg viewBox="0 0 12 10" class="css-1x1o9fj" opacity="1" stroke-dashoffset="0" style="fill: none; stroke-width: 2; stroke: currentcolor; stroke-dasharray: 16;">
                 <polyline points="1.5 6 4.5 9 10.5 1"></polyline>

@@ -3,6 +3,7 @@
     import Checkbox from "$lib/components/core/Checkbox.svelte";
     import Link from 'svelte-link';
     import Button from "$lib/components/core/Button.svelte";
+    import IconButton from "$lib/components/core/IconButton.svelte";
     import Fa from 'svelte-fa/src/fa.svelte';
     import { faHome } from '@fortawesome/free-solid-svg-icons';
 
@@ -20,9 +21,7 @@
                 <h1 class="text-4xl font-bold">CheckBox</h1>
 
                 <Link href="/components">
-                    <Button colorScheme='teal' variant='outline'>
-                        <Fa icon={faHome} primaryColor='lightseagreen' />
-                    </Button>
+                    <IconButton icon={faHome} colorScheme='teal' variant='outline' />
                 </Link>
             </div>
             <span>Checkbox component is used in forms when a user needs to select multiple values from several options.</span>

@@ -2,6 +2,7 @@
     import { faMailBulk, faArrowRight } from '@fortawesome/free-solid-svg-icons';
     import ComponentsLayout from "$lib/layouts/ComponentsLayout.svelte";
     import Button from "$lib/components/core/Button.svelte";
+    import IconButton from '$lib/components/core/IconButton.svelte';
     import Fa from 'svelte-fa/src/fa.svelte';
     import { faHome } from '@fortawesome/free-solid-svg-icons';
     import Link from 'svelte-link';
@@ -14,9 +15,7 @@
                 <h1 class="text-4xl font-bold">Buttons</h1>
 
                 <Link href="/components">
-                    <Button colorScheme='teal' variant='outline'>
-                        <Fa icon={faHome} primaryColor='lightseagreen' />
-                    </Button>
+                    <IconButton icon={faHome} colorScheme='teal' variant='outline' />
                 </Link>
             </div>
             <span>Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation.</span>
