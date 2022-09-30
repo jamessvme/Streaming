@@ -7,6 +7,10 @@
     import { faHome } from '@fortawesome/free-solid-svg-icons';
 
     let checkV = false;
+    let checkV_isDisabled = false;
+    let check_Blue = false;
+    let check_Red = false;
+    let check_Orange = false;
 </script>
 
 <ComponentsLayout>
@@ -45,7 +49,7 @@
                 <div class="relative prose prose-slate w-full">
                     <pre class="language-shell leading-3">
                         <code class="language-shell">
-                            &lt;Button size='md' variant='outline' colorScheme='orange'&gt;Orange&lt;/Button&gt;
+                            &lt;Checkbox bind:value=&#123;checkV&#125; &gt;Click Me!&lt;/Button&gt;
                         </code>
                     </pre>
                 </div>
@@ -57,7 +61,30 @@
                 <h1 class="text-2xl">Default</h1>
 
                 <div class="flex items-center gap-2">
-                    <Checkbox bind:value={checkV}>CheckBox</Checkbox>
+                    <Checkbox bind:value={checkV}>Click Me!</Checkbox>
+                </div>
+            </div>
+        </section>
+
+        <section name="default">
+            <div class="flex flex-col gap-3">
+                <h1 class="text-2xl">Disabled</h1>
+
+                <div class="flex items-center gap-2">
+                    <Checkbox bind:value={checkV_isDisabled} isDisabled>Click Me! - Disabled</Checkbox>
+                    <Checkbox bind:value={checkV_isDisabled} isDisabled defaultChecked>Click Me! - Disabled & DefaultChecked</Checkbox>
+                </div>
+            </div>
+        </section>
+
+        <section name="default">
+            <div class="flex flex-col gap-3">
+                <h1 class="text-2xl">Colors</h1>
+
+                <div class="flex items-center gap-2">
+                    <Checkbox bind:value={check_Blue} >Click Me! - Defaul(Blue)</Checkbox>
+                    <Checkbox bind:value={check_Red} colorScheme='red'>Click Me! - Red</Checkbox>
+                    <Checkbox bind:value={check_Orange} colorScheme='orange'>Click Me! - Orange</Checkbox>
                 </div>
             </div>
         </section>
