@@ -1,16 +1,17 @@
-<script type="ts">
+<script>
     import ComponentsLayout from "$lib/layouts/ComponentsLayout.svelte";
     import Link from 'svelte-link';
     import { faSearch, faHome, faUser, faGear } from '@fortawesome/free-solid-svg-icons';
-
     import IconButton from "$lib/components/core/IconButton.svelte";
+
+    import Input from "$lib/components/core/Input.svelte";
 </script>
 
 <ComponentsLayout>
     <div class="flex flex-col gap-5">
         <div class="flex flex-col gap-2">
             <div class="flex justify-between">
-                <h1 class="text-4xl font-bold">IconButton</h1>
+                <h1 class="text-4xl font-bold">Input</h1>
 
                 <Link href="/components">
                     <Link href="/components">
@@ -18,7 +19,7 @@
                     </Link>
                 </Link>
             </div>
-            <span>Icon button renders an icon within in a button.</span>
+            <span>Input component is a component that is used to get user input in a text field.</span>
         </div>
 
         <section name="import">
@@ -48,29 +49,26 @@
                 </div>
             </div>
         </section>
-    
-        <section name="colors">
+
+        <section name="deafult">
             <div class="flex flex-col gap-3">
-                <h1 class="text-2xl">Colors</h1>
+                <h1 class="text-2xl">Default</h1>
     
                 <div class="flex items-center gap-2">
-                    <IconButton icon={faHome} />
-                    <IconButton icon={faSearch} colorScheme='blue' />
-                    <IconButton icon={faGear} colorScheme='teal' />
-                    <IconButton icon={faUser} colorScheme='orange' />
+                    <Input placeholder='Please enter anything...'/>
                 </div>
             </div>
         </section>
-    
-        <section name="colors">
+
+        <section name="sizes">
             <div class="flex flex-col gap-3">
-                <h1 class="text-2xl">Variants</h1>
+                <h1 class="text-2xl">Sizes</h1>
     
-                <div class="flex items-center gap-2">
-                    <IconButton icon={faHome} colorScheme='teal' />
-                    <IconButton icon={faSearch} colorScheme='teal' variant='outline' />
-                    <IconButton icon={faGear} colorScheme='teal' variant='ghost' />
-                    <IconButton icon={faUser} colorScheme='teal' variant='link' />
+                <div class="flex flex-col items-center gap-2">
+                    <Input placeholder='Please enter anything...' size='xs' />
+                    <Input placeholder='Please enter anything...' size='sm' />
+                    <Input placeholder='Please enter anything...' size='md' />
+                    <Input placeholder='Please enter anything...' size='lg' />
                 </div>
             </div>
         </section>

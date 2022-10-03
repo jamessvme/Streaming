@@ -18,6 +18,10 @@
             <Link href="/components/iconbutton">
                 <Card title='IconButton' content='IconButton guide' />
             </Link>
+
+            <Link href="/components/input">
+                <Card title='Input' content='Input guide' />
+            </Link>
         </div>
     </div>
 </ComponentsLayout>
