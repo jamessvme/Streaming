@@ -22,6 +22,10 @@
             <Link href="/components/input">
                 <Card title='Input' content='Input guide' />
             </Link>
+
+            <Link href="/components/badge">
+                <Card title='Badge' content='Badge guide' />
+            </Link>
         </div>
     </div>
 </ComponentsLayout>
