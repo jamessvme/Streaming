@@ -1,3 +1,7 @@
+<svelte:head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+</svelte:head>
+
 <script>
 	import { onMount } from 'svelte';
     import { theme } from './store/theme';

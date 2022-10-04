@@ -4,13 +4,9 @@
     import Button from '$lib/components/core/Button.svelte';
     import IconButton from '$lib/components/core/IconButton.svelte';
     import Badge from '$lib/components/core/Badge.svelte';
-    import SVGGithub from '$lib/svgs/SVGGithub.svelte';
-    import SvgDiscord from '$lib/svgs/SVGDiscord.svelte';
-    import SvgYoutubu from '$lib/svgs/SVGYoutubu.svelte';
     import Fa from 'svelte-fa/src/fa.svelte';
     import { faSearch, faMoon, faCoffee, faHeart, faSun } from '@fortawesome/free-solid-svg-icons';
     import { theme } from '../../routes/store/theme';
-	import { subscribe } from 'svelte/internal';
 
     let mode = 'light';
 
@@ -45,24 +41,32 @@
                 </Button>
 
                 <!-- social button groups -->
-                <div class="flex items-center px-3 gap-5">
+                <div class="flex items-center px-8 gap-5">
                     <Link href="" class="bg-transparent cursor-pointer outline outline-transparent outline-offset-2 text-inherit transition">
-                        <SVGGithub />
+                        <i class="fa fa-github leading-4 shrink-0 transition hover:text-gray-600 !text-2xl" />
                     </Link>
 
                     <Link href="" class="bg-transparent cursor-pointer outline outline-transparent outline-offset-2 text-inherit transition">
-                        <SvgDiscord />
+                        <i class="fa fa-discord-alt leading-4 shrink-0 transition hover:text-gray-600 !text-2xl" />
                     </Link>
 
                     <Link href="" class="bg-transparent cursor-pointer outline outline-transparent outline-offset-2 text-inherit transition">
-                        <SvgYoutubu />
+                        <i class="fa fa-youtube-play leading-4 shrink-0 transition hover:text-gray-600 !text-2xl" />
+                    </Link>
+
+                    <Link href="" class="bg-transparent cursor-pointer outline outline-transparent outline-offset-2 text-inherit transition">
+                        <i class="fa fa-facebook-square leading-4 shrink-0 transition hover:text-gray-600 !text-2xl" />
+                    </Link>
+
+                    <Link href="" class="bg-transparent cursor-pointer outline outline-transparent outline-offset-2 text-inherit transition">
+                        <i class="fa fa-download leading-4 shrink-0 transition hover:text-gray-600 !text-2xl" />
                     </Link>
                 </div>
 
                 <!-- Dark/Light & Sponser -->
-                <div class="flex items-center gap-5">
+                <div class="flex items-center gap-2">
                     <IconButton variant="ghost" icon={mode == 'light' ? faMoon : faSun} handleClick={toggle} />
-                    <Button colorScheme="orange" leftIcon={faHeart}>Sponser</Button>
+                    <Button colorScheme="orange" leftIcon={faHeart}>Sponsor</Button>
                 </div>
             </div>
         </div>
