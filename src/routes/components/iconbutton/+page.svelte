@@ -42,7 +42,7 @@
                 <div class="relative prose prose-slate w-full">
                     <pre class="language-shell leading-3">
                         <code class="language-shell">
-                            &lt;IconButton variant='outline' colorScheme='orange'&gt;Orange&lt;/IconButton&gt;
+                            &lt;IconButton icon=&#123;faHome&#125; variant='outline' colorScheme='orange'&gt;&lt;/IconButton&gt;
                         </code>
                     </pre>
                 </div>

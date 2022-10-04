@@ -1,3 +1,9 @@
+<script>
+    import Container from "$lib/components/core/Container.svelte";
+    import Header from "./Header.svelte";
+</script>
+
 <div>
-    This is Home Layout
+    <Header />
+    <slot />
 </div>

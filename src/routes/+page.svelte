@@ -1,2 +1,7 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script type="ts">
+    import HomeLayout from "$lib/layouts/HomeLayout.svelte";
+</script>
+
+<HomeLayout>
+    This is Home
+</HomeLayout>

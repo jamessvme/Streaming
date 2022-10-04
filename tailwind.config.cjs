@@ -4,6 +4,9 @@ module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     extend: {
+      maxWidth: {
+        "8xl": "90rem"
+      },
       animation: {
         'loading-fast': '0.45s linear 0s infinite normal none running loading-fast'
       },
