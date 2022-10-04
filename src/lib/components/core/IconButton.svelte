@@ -5,6 +5,7 @@
     export let colorScheme: string = 'gray';
     export let disabled: boolean = false;
     export let variant: string = 'solid';
+    export let handleClick: () => void = () => {};
 
     const textColors = {
         'gray-600' : '!text-gray-600',
@@ -67,16 +68,16 @@
 
     const variants = {
         'solid' : '',
-        'outline' : `bg-transparent ${textColors[(colorScheme + '-600') as keyof TextColorType]} ${hoverBgColors[colorScheme + '-100' as keyof HoverBgColorType]} ${activeBGColors[colorScheme + '-200' as keyof ActiveBGColorType]} border border-current`,
-        'ghost' : `bg-transparent ${textColors[(colorScheme + '-600') as keyof TextColorType]} ${hoverBgColors[colorScheme + '-100' as keyof HoverBgColorType]} ${activeBGColors[colorScheme + '-200' as keyof ActiveBGColorType]}`,
-        'link' : `bg-transparent hover:!bg-transparent ${textColors[(colorScheme + '-600') as keyof TextColorType]} hover:underline decoration-current`
+        'outline' : `!bg-transparent ${textColors[(colorScheme + '-600') as keyof TextColorType]} ${hoverBgColors[colorScheme + '-100' as keyof HoverBgColorType]} ${activeBGColors[colorScheme + '-200' as keyof ActiveBGColorType]} border border-current`,
+        'ghost' : `!bg-transparent ${textColors[(colorScheme + '-600') as keyof TextColorType]} ${hoverBgColors[colorScheme + '-100' as keyof HoverBgColorType]} ${activeBGColors[colorScheme + '-200' as keyof ActiveBGColorType]}`,
+        'link' : `!bg-transparent hover:!bg-transparent ${textColors[(colorScheme + '-600') as keyof TextColorType]} hover:underline decoration-current`
     }
 
     const schemeF = schemes[colorScheme as keyof SchemeType];
     const variantF = variants[variant as keyof VariantType];
 </script>
 
-<div class={`inline-flex appearance-none items-center justify-center select-none relative whitespace-nowrap align-middle outline outline-transparent outline-2 outline-offset-2 leading-tight rounded-md font-semibold transition max-w-[40px] h-10 px-4 ${schemeF} ${disabled ? 'cursor-not-allowed opacity-40' : 'cursor-pointer'} ${variantF}`}>
+<div class={`inline-flex appearance-none items-center justify-center select-none relative whitespace-nowrap align-middle outline outline-transparent outline-2 outline-offset-2 leading-tight rounded-md font-semibold transition max-w-[40px] h-10 px-4 ${schemeF} ${disabled ? 'cursor-not-allowed opacity-40' : 'cursor-pointer'} ${variantF}`} on:click={() => handleClick()}>
     <div class="max-w-4 h-4">
         <Fa icon={icon} style='color: currentColor' />
     </div>

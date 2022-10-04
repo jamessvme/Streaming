@@ -10,6 +10,7 @@
     export let isLoading: boolean = false;
     export let disabled: boolean = false;
     export let fullWidth: boolean = false;
+    export let handleClick: () => void = () => {};
 
     const textColors = {
         'gray-600' : '!text-gray-600',
@@ -94,9 +95,9 @@
 
     const variants = {
         'solid' : '',
-        'outline' : `bg-transparent ${textColors[(colorScheme + '-600') as keyof TextColorType]} ${hoverBgColors[colorScheme + '-100' as keyof HoverBgColorType]} ${activeBGColors[colorScheme + '-200' as keyof ActiveBGColorType]} border border-current`,
-        'ghost' : `bg-transparent ${textColors[(colorScheme + '-600') as keyof TextColorType]} ${hoverBgColors[colorScheme + '-100' as keyof HoverBgColorType]} ${activeBGColors[colorScheme + '-200' as keyof ActiveBGColorType]}`,
-        'link' : `bg-transparent hover:!bg-transparent ${textColors[(colorScheme + '-600') as keyof TextColorType]} hover:underline decoration-current`
+        'outline' : `!bg-transparent ${textColors[(colorScheme + '-600') as keyof TextColorType]} ${hoverBgColors[colorScheme + '-100' as keyof HoverBgColorType]} ${activeBGColors[colorScheme + '-200' as keyof ActiveBGColorType]} border border-current`,
+        'ghost' : `!bg-transparent ${textColors[(colorScheme + '-600') as keyof TextColorType]} ${hoverBgColors[colorScheme + '-100' as keyof HoverBgColorType]} ${activeBGColors[colorScheme + '-200' as keyof ActiveBGColorType]}`,
+        'link' : `!bg-transparent hover:!bg-transparent ${textColors[(colorScheme + '-600') as keyof TextColorType]} hover:underline decoration-current`
     }
 
     const schemeF = schemes[colorScheme as keyof SchemeType];
@@ -108,7 +109,7 @@
     const widthF = fullWidth ? 'w-full' : 'w-fit';
 </script>
 
-<div class={`relative ${widthF} inline-flex appearance-none items-center justify-center select-none whitespace-nowrap align-middle outline outline-transparent outline-2 outline-offset-2 leading-tight rounded-md px-4 ${sizeF} transition ${disabledF ? 'cursor-not-allowed opacity-40' : 'cursor-pointer'} ${schemeF} ${variantF}`}>
+<div class={`relative ${widthF} inline-flex appearance-none items-center justify-center select-none whitespace-nowrap align-middle outline outline-transparent outline-2 outline-offset-2 leading-tight rounded-md px-4 ${sizeF} transition ${disabledF ? 'cursor-not-allowed opacity-40' : 'cursor-pointer'} ${schemeF} ${variantF}`} on:click={() => handleClick()}>
     {#if isLoading}
         <div class={`inline-block border-t-2 border-t-current border-r-2 border-r-current border-b-2 border-b-transparent border-l-2 border-l-transparent animate-loading-fast rounded-full w-4 h-4 text-current ${loadingText ? 'mr-2' : ''}`} />
         {#if loadingText}
