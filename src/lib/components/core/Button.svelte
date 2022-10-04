@@ -9,6 +9,7 @@
     export let loadingText: string = '';
     export let isLoading: boolean = false;
     export let disabled: boolean = false;
+    export let fullWidth: boolean = false;
 
     const textColors = {
         'gray-600' : '!text-gray-600',
@@ -104,9 +105,10 @@
     const leftIconF = leftIcon;
     const rightIconF = rightIcon;
     const disabledF = disabled || isLoading;
+    const widthF = fullWidth ? 'w-full' : 'w-fit';
 </script>
 
-<div class={`relative inline-flex appearance-none items-center justify-center select-none whitespace-nowrap align-middle outline outline-transparent outline-2 outline-offset-2 leading-tight rounded-md px-4 ${sizeF} transition ${disabledF ? 'cursor-not-allowed opacity-40' : 'cursor-pointer'} ${schemeF} ${variantF}`}>
+<div class={`relative ${widthF} inline-flex appearance-none items-center justify-center select-none whitespace-nowrap align-middle outline outline-transparent outline-2 outline-offset-2 leading-tight rounded-md px-4 ${sizeF} transition ${disabledF ? 'cursor-not-allowed opacity-40' : 'cursor-pointer'} ${schemeF} ${variantF}`}>
     {#if isLoading}
         <div class={`inline-block border-t-2 border-t-current border-r-2 border-r-current border-b-2 border-b-transparent border-l-2 border-l-transparent animate-loading-fast rounded-full w-4 h-4 text-current ${loadingText ? 'mr-2' : ''}`} />
         {#if loadingText}
