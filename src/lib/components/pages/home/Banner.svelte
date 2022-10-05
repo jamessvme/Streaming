@@ -59,7 +59,7 @@
 
 <div class="relative flex items-center justify-center w-full h-[600px]">
     <!-- banner content -->
-    <div class="flex flex-col gap-2 text-center">
+    <div class="flex flex-col gap-2 text-center p-5 bg-white/90 rounded-xl">
         <div class="text-6xl font-extrabold text-orange-500">
             <h1>C -> Rust -> Flogram</h1>
             <p class="text-3xl italic">"Diet Language, Free of Syntactic Sugar"</p>
