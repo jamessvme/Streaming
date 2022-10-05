@@ -32,16 +32,18 @@
 
             <!-- Left side menu -->
             <div class="flex items-center justify-end w-full text-gray-400 max-w-2xl">
-                <Button variant="outline" colorScheme="gray" fullWidth>
-                    <Fa size="sm" icon={faSearch} />
-                    <span class="flex items-center w-full ml-3">
-                        <p class="text-left flex-1">Search the docs</p>
-                        <Badge colorScheme='orange'>Ctrl + K</Badge>
-                    </span>
-                </Button>
+                <div class="hidden sm:block">
+                    <Button variant="outline" colorScheme="gray" fullWidth>
+                        <Fa size="sm" icon={faSearch} />
+                        <span class="flex items-center w-full ml-3">
+                            <p class="text-left flex-1">Search the docs</p>
+                            <Badge colorScheme='orange'>Ctrl + K</Badge>
+                        </span>
+                    </Button>
+                </div>
 
                 <!-- social button groups -->
-                <div class="flex items-center px-8 gap-5">
+                <div class="hidden md:flex items-center px-8 gap-5">
                     <Link href="" class="bg-transparent cursor-pointer outline outline-transparent outline-offset-2 text-inherit transition">
                         <i class="fa fa-github leading-4 shrink-0 transition hover:text-gray-600 !text-2xl" />
                     </Link>

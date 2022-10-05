@@ -2,7 +2,6 @@
     import Button from "$lib/components/core/Button.svelte";
     import Particles from "svelte-particles";
     import { loadFull } from "tsparticles";
-    import Fa from 'svelte-fa/src/fa.svelte';
     import { faArrowRight, faDownload } from '@fortawesome/free-solid-svg-icons';
 
     let particlesConfig = {
@@ -48,16 +47,22 @@
         padding: 0;
         position: fixed;
         width: 100%;
-        height: 600px;
+        height: 800px;
         top: 0;
         left: 0;
         bottom: 0;
         right: 0;
         z-index: -1;
     }
+
+    @media screen and (min-width: 680px) {
+        :global(#tsparticles) {
+            height: 600px;
+        }    
+    }
 </style>
 
-<div class="relative flex items-center justify-center w-full h-[600px]">
+<div class="relative flex items-center justify-center w-full h-[800px] md:h-[600px]">
     <!-- banner content -->
     <div class="flex flex-col gap-2 text-center p-5 bg-white/90 rounded-xl">
         <div class="text-6xl font-extrabold text-orange-500">
@@ -67,7 +72,7 @@
 
         <p class="text-gray-500">Flogram is simpler and faster but familiar with the other popular programming languages like C, C++, Rust.</p>
 
-        <div class="flex justify-center mt-5 gap-5">
+        <div class="flex flex-col md:flex-row items-center justify-center mt-5 gap-5">
             <Button size='lg' colorScheme='orange' rightIcon={faArrowRight}>Get Started</Button>
             <Button size='lg' colorScheme='orange' variant='ghost' rightIcon={faDownload}>Download(9837 weekly downloads)</Button>
         </div>
