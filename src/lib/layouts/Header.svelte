@@ -20,13 +20,13 @@
     })
 </script>
 
-<div class="sticky top-0 z-10 bg-white left-0 right-0 w-full transition">
+<div class="sticky top-0 z-10 bg-white left-0 right-0 w-full transition opacity-90">
     <div class="h-[72px] max-w-8xl mx-auto">
         <div class="flex items-center justify-between w-full h-full px-6">
             <!-- Logo -->
             <div class="flex items-center">
                 <Link href="/">
-                    <span class="text-2xl font-bold italic">Flogram</span>
+                    <span class="text-2xl text-orange-500 font-bold italic">Flogram</span>
                 </Link>
             </div>
 
@@ -36,7 +36,7 @@
                     <Fa size="sm" icon={faSearch} />
                     <span class="flex items-center w-full ml-3">
                         <p class="text-left flex-1">Search the docs</p>
-                        <Badge colorScheme='teal'>Ctrl + K</Badge>
+                        <Badge colorScheme='orange'>Ctrl + K</Badge>
                     </span>
                 </Button>
 
