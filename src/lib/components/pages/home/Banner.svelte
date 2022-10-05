@@ -55,7 +55,7 @@
         z-index: -1;
     }
 
-    @media screen and (min-width: 680px) {
+    @media screen and (min-width: 768px) {
         :global(#tsparticles) {
             height: 600px;
         }    
