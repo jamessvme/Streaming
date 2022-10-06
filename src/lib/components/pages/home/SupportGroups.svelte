@@ -1,6 +1,14 @@
 <script lang="ts">
     const companies = [
         {
+            name: 'Frink',
+            logo: 'https://static.wixstatic.com/media/8da031_8d0ee2c4a48c40daaadad8aa9343aa75~mv2.png/v1/fill/w_226,h_60,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logomin-Arial.png'
+        },
+        {
+            name: 'Domino',
+            logo: 'https://static.wixstatic.com/media/94e822_7535811236d24f50ae6312e714ff2fb5~mv2.png/v1/fill/w_199,h_50,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/DOMI%202%202022.png'
+        },
+        {
             name: 'Apple',
             logo: 'https://justcreative.com/wp-content/uploads/2022/01/Apple-Logo-600x400.png.webp'
         },
