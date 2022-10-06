@@ -45,7 +45,7 @@
     :global(#tsparticles) {
         margin: 0;
         padding: 0;
-        position: fixed;
+        position: absolute;
         width: 100%;
         height: 800px;
         top: 0;
