@@ -9,11 +9,11 @@
     </span>
 
     <div class="py-10 grid md:grid-cols-3 gap-3">
-        <FeatureCard icon={faThunderstorm} title="Faster" description="Flogram is faster than the other languages." />
-        <FeatureCard icon={faLightbulb} title="Simpler" description="Flogram is simpler than the other languages." />
-        <FeatureCard icon={faBacterium} title="Easier" description="Flogram is easier than the other languages." />
-        <FeatureCard icon={faAward} title="Test1" description="Flogram is test1 than the other languages." />
-        <FeatureCard icon={faSpider} title="Test2" description="Flogram is test2 than the other languages." />
-        <FeatureCard icon={faExchange} title="Test3" description="Flogram is test3 than the other languages." />
+        <FeatureCard icon={faThunderstorm} title="Faster" description="Allow peak performance, Minimize language, Minimize amount of code that needs to be written" />
+        <FeatureCard icon={faLightbulb} title="Simpler" description="Minimize how much users need to think about/simplify, Improve conciseness, ok to shorten the most commonly used words" />
+        <FeatureCard icon={faBacterium} title="Easier" description="Prevent bugs.  Ideally prevent and cause compiler error, or make it easier to spot" />
+        <FeatureCard icon={faAward} title="Easy to LEARN" description="Similar to popular languages. English is a popular language" />
+        <FeatureCard icon={faSpider} title="Flexibility" description="Improve flexibility" />
+        <FeatureCard icon={faExchange} title="Performance" description="Speed up compilation time" />
     </div>
 </div>
