@@ -6,6 +6,7 @@
     import HighPoints from "$lib/components/pages/home/HighPoints.svelte";
     import Status from "$lib/components/pages/home/Status.svelte";
     import Blog from "$lib/components/pages/home/Blog.svelte";
+    import Support from "$lib/components/pages/home/Support.svelte";
 </script>
 
 <HomeLayout>
@@ -15,4 +16,5 @@
     <HighPoints />
     <Status />
     <Blog />
+    <Support />
 </HomeLayout>
