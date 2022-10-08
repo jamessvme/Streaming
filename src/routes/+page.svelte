@@ -5,6 +5,7 @@
     import Features from "$lib/components/pages/home/Features.svelte";
     import HighPoints from "$lib/components/pages/home/HighPoints.svelte";
     import Status from "$lib/components/pages/home/Status.svelte";
+    import Blog from "$lib/components/pages/home/Blog.svelte";
 </script>
 
 <HomeLayout>
@@ -13,4 +14,5 @@
     <Features />
     <HighPoints />
     <Status />
+    <Blog />
 </HomeLayout>
