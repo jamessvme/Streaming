@@ -7,6 +7,7 @@
     import Status from "$lib/components/pages/home/Status.svelte";
     import Blog from "$lib/components/pages/home/Blog.svelte";
     import Support from "$lib/components/pages/home/Support.svelte";
+    import ConnectDiscord from "$lib/components/pages/home/ConnectDiscord.svelte";
 </script>
 
 <HomeLayout>
@@ -17,4 +18,5 @@
     <Status />
     <Blog />
     <Support />
+    <ConnectDiscord />
 </HomeLayout>
