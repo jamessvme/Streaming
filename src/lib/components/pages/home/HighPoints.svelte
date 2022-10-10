@@ -1,12 +1,8 @@
 <div class="flex flex-col items-center py-10 px-6 gap-5 bg-gray-100">
-    <span class="text-4xl text-orange-500">3 High Points</span>
+    <span class="text-4xl text-orange-500 font-bold">Why FLOGRAM?</span>
 
     <div class="grid md:grid-cols-3 gap-20">
         <div class="flex flex-col items-center transition duration-200 p-6 rounded-md hover:bg-orange-200/50 cursor-pointer">
-            <span class="mb-4 transition duration-200 ">
-                <img src="https://nuxtjs.org/img/home/explore/gem-explore-1.svg" alt="high productivity" />
-            </span>
-
             <h3 class="mb-1 text-center text-body-lg lg:text-body-xl font-bold">High <span class="text-orange-500 text-xl">Productivity</span></h3>
 
             <p class="text-center text-sm lg:text-base mb-1 italic">Simple mental model</p>
@@ -16,10 +12,6 @@
         </div>
 
         <div class="flex flex-col items-center transition duration-200 p-6 rounded-md hover:bg-orange-200/50 cursor-pointer">
-            <span class="mb-4 transition duration-200 ">
-                <img src="https://nuxtjs.org/img/home/explore/gem-explore-2.svg" alt="high Performance" />
-            </span>
-
             <h3 class="mb-1 text-center text-body-lg lg:text-body-xl font-bold">High <span class="text-orange-500 text-xl">Performance</span></h3>
 
             <p class="text-center text-sm lg:text-base mb-1 italic">No garbage collector GC</p>
@@ -31,10 +23,6 @@
         </div>
 
         <div class="flex flex-col items-center transition duration-200 p-6 rounded-md hover:bg-orange-200/50 cursor-pointer">
-            <span class="mb-4 transition duration-200 ">
-                <img src="https://nuxtjs.org/img/home/explore/gem-explore-3.svg" alt="high Security" />
-            </span>
-
             <h3 class="mb-1 text-center text-body-lg lg:text-body-xl font-bold">High <span class="text-orange-500 text-xl">Security</span></h3>
 
             <p class="text-center text-sm lg:text-base mb-1 italic">Memory Safe</p>

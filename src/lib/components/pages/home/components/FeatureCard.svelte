@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Button from '$lib/components/core/Button.svelte';
     import Fa from 'svelte-fa/src/fa.svelte';
 
     export let title = '';
@@ -18,4 +19,8 @@
     <p class="text-gray-500">
         {description}
     </p>
+
+    <div class="flex justify-end">
+        <Button colorScheme="orange" variant="link">Learn more...</Button>
+    </div>
 </div>
