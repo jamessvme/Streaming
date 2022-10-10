@@ -1,5 +1,17 @@
 <svelte:head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L80Q2968RH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || []
+    
+        function gtag() {
+          dataLayer.push(arguments)
+        }
+    
+        gtag('js', new Date())
+        gtag('config', 'MEASUREMENT_ID')
+    </script>
 </svelte:head>
 
 <script>
