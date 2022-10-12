@@ -5,7 +5,7 @@
     import IconButton from '$lib/components/core/IconButton.svelte';
     import Badge from '$lib/components/core/Badge.svelte';
     import Fa from 'svelte-fa/src/fa.svelte';
-    import { faSearch, faMoon, faCoffee, faHeart, faSun } from '@fortawesome/free-solid-svg-icons';
+    import { faSearch, faMoon, faCoffee, faHeart, faSun, faSignIn } from '@fortawesome/free-solid-svg-icons';
     import { theme } from '../../routes/store/theme';
 
     let mode = 'light';
@@ -26,7 +26,10 @@
             <!-- Logo -->
             <div class="flex items-center">
                 <Link href="/">
-                    <span class="text-2xl text-orange-500 font-bold italic">Flogram</span>
+                    <span class="text-2xl text-orange-500 font-bold italic">
+                        <span class="hidden md:block">Flogram</span>
+                        <span class="block md:hidden">F</span>
+                    </span>
                 </Link>
             </div>
 
@@ -65,10 +68,13 @@
                     </Link>
                 </div>
 
-                <!-- Dark/Light & Sponser -->
+                <!-- Dark/Light & Sponser & signin/signup -->
                 <div class="flex items-center gap-2">
                     <IconButton variant="ghost" icon={mode == 'light' ? faMoon : faSun} handleClick={toggle} />
                     <Button colorScheme="orange" leftIcon={faHeart}>Sponsor</Button>
+                    <Link href="app/auth/signin">
+                        <Button colorScheme="orange" variant="ghost" leftIcon={faSignIn} >Signin</Button>
+                    </Link>
                 </div>
             </div>
         </div>
