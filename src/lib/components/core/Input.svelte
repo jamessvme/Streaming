@@ -2,6 +2,7 @@
     export let focusBorderColor = 'blue';
     export let placeholder = '';
     export let size = 'md';
+    export let type = 'text';
 
     const focusBorderColors = {
         'blue': 'focus-visible:border-blue-500'
@@ -29,4 +30,4 @@
     const sizeF = sizes[size as keyof SizeType];
 </script>
 
-<input class={`w-full min-w-0 outline outline-transparent outline-2 outline-offset-2 appearance-none relative transition py-0 ${sizeF} rounded-md border border-inherit focus-visible:z-1 ${focusBorderColorF}`} placeholder={placeholder} />
+<input type={type} class={`w-full min-w-0 outline outline-transparent outline-2 outline-offset-2 appearance-none relative transition py-0 ${sizeF} rounded-md border border-inherit focus-visible:z-1 ${focusBorderColorF}`} placeholder={placeholder} />
