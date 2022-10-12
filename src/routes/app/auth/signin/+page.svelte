@@ -3,6 +3,7 @@
     import Button from "$lib/components/core/Button.svelte";
     import Input from "$lib/components/core/Input.svelte";
     import Checkbox from "$lib/components/core/Checkbox.svelte";
+    import Link from 'svelte-link';
 
     let isRemember = false;
 </script>
@@ -41,27 +42,29 @@
 
     <!-- right side -->
     <div class="flex flex-col w-full md:w-1/2 min-h-full md:px-12 my-10">
-        <div class="flex items-center max-w-2xl mx-auto min-h-full px-8 py-48">
-            <div class="flex flex-col gap-8">
+        <div class="flex items-center w-full mx-auto min-h-full px-8 py-48">
+            <div class="flex flex-col gap-8 w-full">
                 <div class="flex flex-col text-center gap-2">
                     <span class="font-semibold text-3xl leading-10">Log in to your account</span>
     
-                    <div>
+                    <div class="text-gray-700 flex items-center justify-center">
                         Don't have an account?
-                        <Button colorScheme="orange" variant="link">Sign up</Button>
+                        <Link href="/app/auth/signup">
+                            <Button colorScheme="orange" variant="link">Sign up</Button>
+                        </Link>
                     </div>
                 </div>
 
                 <div class="flex flex-col gap-5">
                     <!-- email -->
                     <div class="flex flex-col gap-1">
-                        <span class="text-sm font-medium">Email</span>
+                        <span class="text-sm font-medium text-gray-700">Email</span>
                         <Input type="text" placeholder="Enter your email" />
                     </div>
 
                     <!-- password -->
                     <div class="flex flex-col gap-1">
-                        <span class="text-sm font-medium">Password</span>
+                        <span class="text-sm font-medium text-gray-700">Password</span>
                         <Input type="password" placeholder="Enter your password" />
                     </div>
                 </div>
