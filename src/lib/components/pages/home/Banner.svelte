@@ -74,7 +74,7 @@
 
         <div class="flex flex-col md:flex-row items-center justify-center mt-5 gap-5">
             <Button size='lg' colorScheme='orange' rightIcon={faArrowRight}>Get Started</Button>
-            <Button size='lg' colorScheme='orange' variant='ghost' rightIcon={faDownload}>Download(9837 weekly downloads)</Button>
+            <Button size='lg' colorScheme='orange' variant='ghost' rightIcon={faDownload}>Download(0 weekly downloads)</Button>
         </div>
     </div>
     <Particles options={particlesConfig} particlesInit={particlesInit} />

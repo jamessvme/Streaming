@@ -7,7 +7,7 @@
 <div class="bg-orange-500">
     <div class="max-w-[1200px] mx-auto px-8 py-32 text-white">
         <div class="max-w-[500px] text-center mb-14 mx-auto">
-            <h1 class="text-4xl font-semibold">Support Flogram for growing fast together <i class="fa fa-leaf" /> </h1>
+            <h1 class="text-4xl font-semibold">100% of Your Donations go Toward Improving Flogram <i class="fa fa-leaf" /> </h1>
 
             <p>Our maintainers devote their time, effort, and heart to ensure Flogram keeps getting better and faster. Support us by donating to our collective 🙏</p>
         </div>
@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <div class="max-w-[600px] mx-auto text-center">
+        <!-- <div class="max-w-[600px] mx-auto text-center">
             <p class="uppercase mt-16 mb-8 font-bold">Sponsor Organizations <i class="fa fa-star" /> </p>
 
             <div class="grid grid-cols-4 md:grid-cols-6 gap-5">
@@ -62,6 +62,6 @@
                 <Avatar src="https://avatars.githubusercontent.com/u/51176044?s=20?v=4" alt="" size="md" />
                 <Avatar src="https://avatars.githubusercontent.com/u/104041595?s=20?v=4" alt="" size="md" />
             </div>
-        </div>
+        </div> -->
     </div>
 </div>

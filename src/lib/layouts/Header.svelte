@@ -40,7 +40,7 @@
                         <Fa size="sm" icon={faSearch} />
                         <span class="flex items-center w-full ml-3">
                             <p class="text-left flex-1">Search the docs</p>
-                            <Badge colorScheme='orange'>Ctrl + K</Badge>
+                            <Badge colorScheme='orange'>Ctrl + Space</Badge>
                         </span>
                     </Button>
                 </div>

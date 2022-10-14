@@ -3,7 +3,7 @@
 </script>
 
 <div class="max-w-[1200px] py-32 mx-auto px-8">
-    <h1 class="text-6xl mb-12 text-center font-extrabold text-gray-700">Feedback from active and productive people like you</h1>
+    <h1 class="text-6xl mb-12 text-center font-extrabold text-gray-700">Why choose Flogram?</h1>
 
     <div class="grid md:grid-cols-3 gap-5">
         <BlogCard github_id={1498338} author="Matt" date="Sep 4, 2022" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." stars={5}/>

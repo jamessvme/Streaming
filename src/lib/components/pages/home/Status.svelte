@@ -7,7 +7,7 @@
 <div class="bg-orange-500 text-white">
     <div class="max-w-[1280px] py-20 px-8 mx-auto">
         <h1 class="max-w-[760px] mb-14 mx-auto text-center">
-            <span class="text-5xl font-extrabold"><i>Flogram</i> is growing quickly</span>
+            <span class="text-5xl font-extrabold"><i>Flogram</i> is brand new and just launched!</span>
 
             <p class="mt-4">
                 We're dedicated to improving the experience and performance of Flogram.
@@ -16,7 +16,7 @@
 
         <div class="grid md:grid-cols-2 max-w-[880px] mx-auto gap-16">
             <div class="flex flex-col pl-8 border-l-2 border-teal-500 gap-5">
-                <div class="text-8xl">3.4 M</div>
+                <div class="text-8xl">0</div>
 
                 <div class="flex items-center gap-2">
                     <i class="fa fa-download" />
@@ -26,7 +26,7 @@
             </div>
 
             <div class="flex flex-col pl-8 border-l-2 border-teal-500 gap-5">
-                <div class="text-8xl">2.45 K</div>
+                <div class="text-8xl">3</div>
 
                 <div class="flex items-center gap-2">
                     <i class="fa fa-github !text-xl" />
@@ -46,7 +46,7 @@
             </div>
 
             <div class="flex flex-col pl-8 border-l-2 border-teal-500 gap-5">
-                <div class="text-8xl">4.2 K</div>
+                <div class="text-8xl">21</div>
 
                 <div class="flex items-center gap-2">
                     <i class="fa fa-discord-alt !text-xl" />
