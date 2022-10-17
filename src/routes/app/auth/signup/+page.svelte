@@ -39,7 +39,7 @@
 
     <!-- right side -->
     <div class="flex flex-col w-full md:w-1/2 min-h-full md:px-12 my-10">
-        <div class="flex items-center w-full mx-auto min-h-full px-8 py-48">
+        <div class="flex items-center w-full mx-auto min-h-full px-8 py-40">
             <div class="flex flex-col gap-8 w-full">
                 <div class="flex flex-col text-center gap-2">
                     <span class="font-semibold text-3xl leading-10">Create your account</span>
@@ -47,7 +47,7 @@
                     <div class="text-gray-700 flex items-center justify-center">
                         Do have already account?
                         <Link href="/app/auth/signin">
-                            <Button colorScheme="orange" variant="link">Sign in</Button>
+                            <Button colorScheme="orange" variant="link">Log in</Button>
                         </Link>
                     </div>
                 </div>

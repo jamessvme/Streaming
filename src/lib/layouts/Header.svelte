@@ -73,7 +73,7 @@
                     <IconButton variant="ghost" icon={mode == 'light' ? faMoon : faSun} handleClick={toggle} />
                     <Button colorScheme="orange" leftIcon={faHeart}>Sponsor</Button>
                     <Link href="app/auth/signin">
-                        <Button colorScheme="orange" variant="ghost" leftIcon={faSignIn} >Signin</Button>
+                        <Button colorScheme="orange" variant="ghost" leftIcon={faSignIn} >Login</Button>
                     </Link>
                 </div>
             </div>

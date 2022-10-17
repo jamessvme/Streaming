@@ -66,15 +66,15 @@
     <!-- banner content -->
     <div class="flex flex-col gap-2 text-center p-5 bg-white/90 rounded-xl">
         <div class="text-6xl font-extrabold text-orange-500">
-            <h1>C -> Rust -> Flogram</h1>
-            <p class="text-3xl italic">"Diet Language, Free of Syntactic Sugar"</p>
+            <h1>Performance without Pain</h1>
+            <p class="text-3xl italic">"A High Performance, Energy Efficient, Easy Programming Language"</p>
         </div>
 
-        <p class="text-gray-500">Flogram is simpler and faster but familiar with the other popular programming languages like C, C++, Rust.</p>
+        <p class="text-gray-500">Flogram is simpler and faster but similar to the other popular programming languages like C, C++, Rust.</p>
 
         <div class="flex flex-col md:flex-row items-center justify-center mt-5 gap-5">
             <Button size='lg' colorScheme='orange' rightIcon={faArrowRight}>Get Started</Button>
-            <Button size='lg' colorScheme='orange' variant='ghost' rightIcon={faDownload}>Download(0 weekly downloads)</Button>
+            <Button size='lg' colorScheme='orange' variant='ghost' rightIcon={faDownload}>Download (0 weekly downloads)</Button>
         </div>
     </div>
     <Particles options={particlesConfig} particlesInit={particlesInit} />

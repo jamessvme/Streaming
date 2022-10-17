@@ -76,7 +76,7 @@
                 </div>
 
                 <!-- SignIn button -->
-                <Button colorScheme="orange" fullWidth>Sign in</Button>
+                <Button colorScheme="orange" fullWidth>Log in</Button>
             </div>
         </div>
     </div>

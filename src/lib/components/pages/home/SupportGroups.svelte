@@ -38,9 +38,9 @@
 <div class="flex flex-col items-center text-center py-14 bg-gray-100">
     <span class="text-xl text-orange-500 uppercase">Supported by</span>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-2 max-w-[800px] py-5">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-[800px] py-5">
         {#each companies as company}
-        <div class="flex justify-center w-40 p-5 bg-white">
+        <div class="flex justify-center w-30 md:w-40 p-5 bg-white">
             <img src={company.logo} alt={company.name} class="w-15 h-10" />
         </div>
         {/each}
