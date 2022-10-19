@@ -17,8 +17,8 @@
 <script>
 	import { onMount } from 'svelte';
     import { theme } from './store/theme';
+    import { ToastContainer, FlatToast }  from "svelte-toasts";
     import '../global.css';
-
     onMount(() => {
         theme.subscribe(value => {
             if(value === 'light') {
@@ -33,5 +33,8 @@
 </script>
 
 <div>
+    <ToastContainer let:data={data}>
+		<FlatToast {data}  />
+	</ToastContainer>
     <slot />
 </div>
