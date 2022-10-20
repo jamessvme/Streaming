@@ -6,6 +6,8 @@
     export let type = 'text';
     export let isInvalid = false;
 
+    let timer: any;
+
     const focusBorderColors = {
         'blue': 'focus-visible:border-blue-500'
     }
@@ -31,9 +33,13 @@
     const handleInput = (e: any) => {
         // in here, you can switch on type and implement
         // whatever behaviour you need
-        value = type.match(/^(number|range)$/)
-        ? +e.target.value
-        : e.target.value;
+        clearTimeout(timer);
+
+        timer = setTimeout(() => {
+            value = type.match(/^(number|range)$/)
+                ? +e.target.value
+                : e.target.value;
+        }, 750);
     };
 
     const focusBorderColorF = focusBorderColors[focusBorderColor as keyof FocusBorderColorType];
