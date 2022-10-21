@@ -5,10 +5,14 @@
     import IconButton from '$lib/components/core/IconButton.svelte';
     import Badge from '$lib/components/core/Badge.svelte';
     import Fa from 'svelte-fa/src/fa.svelte';
-    import { faSearch, faMoon, faCoffee, faHeart, faSun, faSignIn } from '@fortawesome/free-solid-svg-icons';
-    import { theme } from '../../routes/store/theme';
+    import { faSearch, faMoon, faHeart, faSun, faSignIn } from '@fortawesome/free-solid-svg-icons';
+    import { theme } from '$lib/store/theme';
+    import { isAuthenticated as authenticated } from '$lib/store/authenticate';
 
     let mode = 'light';
+    let isAuthenticated = false;
+
+    $: path = isAuthenticated ? "#" : "";
 
     const toggle = () => {
         theme.update(theme => theme === 'light' ? 'dark' : 'light');
@@ -17,6 +21,7 @@
 
     onMount(() => {
         theme.subscribe(value => mode = value);
+        authenticated.subscribe(value => isAuthenticated = value);
     })
 </script>
 
@@ -72,8 +77,14 @@
                 <div class="flex items-center gap-2">
                     <IconButton variant="ghost" icon={mode == 'light' ? faMoon : faSun} handleClick={toggle} />
                     <Button colorScheme="orange" leftIcon={faHeart}>Sponsor</Button>
-                    <Link href="app/auth/signin">
-                        <Button colorScheme="orange" variant="ghost" leftIcon={faSignIn} >Login</Button>
+                    <Link href="/app/auth/signin">
+                        <Button colorScheme="orange" variant="ghost" leftIcon={faSignIn} >
+                            {#if isAuthenticated}
+                                Logout
+                            {:else}
+                                Login
+                            {/if}
+                        </Button>
                     </Link>
                 </div>
             </div>

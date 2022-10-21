@@ -16,7 +16,7 @@
 
 <script>
 	import { onMount } from 'svelte';
-    import { theme } from './store/theme';
+    import { theme } from '$lib/store/theme';
     import { ToastContainer, FlatToast }  from "svelte-toasts";
     import '../global.css';
     onMount(() => {

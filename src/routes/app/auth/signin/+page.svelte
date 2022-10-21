@@ -3,9 +3,72 @@
     import Button from "$lib/components/core/Button.svelte";
     import Input from "$lib/components/core/Input.svelte";
     import Checkbox from "$lib/components/core/Checkbox.svelte";
+    import FormErrorMessage from "$lib/components/core/FormErrorMessage.svelte";
     import Link from 'svelte-link';
+    import { form, field } from 'svelte-forms';
+    import { required } from 'svelte-forms/validators';
+    import axios from 'axios';
+    import { env } from '$env/dynamic/public';
+    import { toasts }  from "svelte-toasts";
 
     let isRemember = false;
+    let isLoading = false;
+
+    const usernameF = field('username', '', [required()]);
+    const passwordF = field('password', '', [required()]);
+
+    const signinForm = form(usernameF, passwordF);
+
+    const handleSignin = async () => {
+        usernameF.validate();
+        passwordF.validate();
+
+        if($signinForm.dirty && $signinForm.valid) {
+            try {
+                isLoading = true;
+                const response = await axios.post(`${env.PUBLIC_FLOGRAM_API_URL}/auth/signin`, { username: $usernameF.value, password: $passwordF.value });
+
+                const access_token = response.data.access_token;
+
+                if (typeof localStorage !== 'undefined') {
+                    localStorage.setItem("access_token", access_token);
+                }
+
+                toasts.add({
+                    title: 'Authentication Success!',
+                    description: '',
+                    duration: 3000, // 0 or negative to avoid auto-remove
+                    placement: 'bottom-right',
+                    showProgress: true,
+                    type: 'success',
+                    theme: 'dark',
+                    onClick: () => {},
+                    onRemove: () => {},
+                });
+
+                if(typeof window !== 'undefined') {
+                    window.location.href = "/app/home";
+                }
+
+                isLoading = false;
+            } catch (error: any) {
+                isLoading = false;
+                if(error.response.status === 401) {
+                    toasts.add({
+                        title: 'Authentication failed!',
+                        description: 'Please check your username and password',
+                        duration: 3000, // 0 or negative to avoid auto-remove
+                        placement: 'bottom-right',
+                        showProgress: true,
+                        type: 'warning',
+                        theme: 'dark',
+                        onClick: () => {},
+                        onRemove: () => {},
+                    });
+                }
+            }
+        }
+    }
 </script>
 
 <div class="max-w-[1200px] mx-auto min-h-[100vh] flex">
@@ -56,16 +119,26 @@
                 </div>
 
                 <div class="flex flex-col gap-5">
-                    <!-- email -->
+                    <!-- username -->
                     <div class="flex flex-col gap-1">
-                        <span class="text-sm font-medium text-gray-700">Email</span>
-                        <Input type="text" placeholder="Enter your email" />
+                        <span class="text-sm font-medium text-gray-700">Username</span>
+                        <Input type="text" placeholder="Enter your username" bind:value={$usernameF.value} isInvalid={$signinForm.hasError('username.required')} />
+                        {#if !$signinForm.valid}
+                            {#if $signinForm.hasError('username.required')}
+                            <FormErrorMessage>Username is required</FormErrorMessage>
+                            {/if}
+                        {/if}
                     </div>
 
                     <!-- password -->
                     <div class="flex flex-col gap-1">
                         <span class="text-sm font-medium text-gray-700">Password</span>
-                        <Input type="password" placeholder="Enter your password" />
+                        <Input type="password" placeholder="Enter your password" bind:value={$passwordF.value} isInvalid={$signinForm.hasError('password.required') || $signinForm.hasError('password.between')} />
+                        {#if !$signinForm.valid}
+                            {#if $signinForm.hasError('password.required')}
+                            <FormErrorMessage>Password is required</FormErrorMessage>
+                            {/if}
+                        {/if}
                     </div>
                 </div>
 
@@ -76,7 +149,7 @@
                 </div>
 
                 <!-- SignIn button -->
-                <Button colorScheme="orange" fullWidth>Log in</Button>
+                <Button colorScheme="orange" fullWidth handleClick={handleSignin} isLoading={isLoading}>Log in</Button>
             </div>
         </div>
     </div>
