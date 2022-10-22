@@ -71,7 +71,7 @@
     }
 </script>
 
-<div class="max-w-[1200px] mx-auto min-h-[100vh] flex">
+<div class="max-w-[1200px] mx-auto min-h-[100vh] flex flex-col md:flex-row">
     <!-- left side -->
     <div class="hidden md:flex flex-col w-1/2 min-h-full bg-orange-500 px-12 my-10 text-white">
         <div class="flex items-center h-24">
@@ -104,8 +104,8 @@
     </div>
 
     <!-- right side -->
-    <div class="flex flex-col w-full md:w-1/2 min-h-full md:px-12 my-10">
-        <div class="flex items-center w-full mx-auto min-h-full px-8 py-48">
+    <div class="flex flex-col w-full md:w-1/2 md:min-h-full md:px-12 my-10">
+        <div class="flex items-center w-full mx-auto min-h-full px-8 md:py-48">
             <div class="flex flex-col gap-8 w-full">
                 <div class="flex flex-col text-center gap-2">
                     <span class="font-semibold text-3xl leading-10">Log in to your account</span>
@@ -152,5 +152,10 @@
                 <Button colorScheme="orange" fullWidth handleClick={handleSignin} isLoading={isLoading}>Log in</Button>
             </div>
         </div>
+    </div>
+
+    <!-- Image -->
+    <div class="flex flex-1 md:hidden">
+        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80" class="object-cover min-w-full" alt="" />
     </div>
 </div>
