@@ -12,11 +12,18 @@
     let mode = 'light';
     let isAuthenticated = false;
 
-    $: path = isAuthenticated ? "#" : "";
+    $: path = isAuthenticated ? "#" : "/app/auth/signin";
 
     const toggle = () => {
         theme.update(theme => theme === 'light' ? 'dark' : 'light');
         console.log('toggle');
+    }
+
+    const logout = () => {
+        if(typeof localStorage !== 'undefined' && typeof location !== 'undefined') {
+            localStorage.removeItem("access_token");
+            location.reload();
+        }
     }
 
     onMount(() => {
@@ -77,8 +84,8 @@
                 <div class="flex items-center gap-2">
                     <IconButton variant="ghost" icon={mode == 'light' ? faMoon : faSun} handleClick={toggle} />
                     <Button colorScheme="orange" leftIcon={faHeart}>Sponsor</Button>
-                    <Link href="/app/auth/signin">
-                        <Button colorScheme="orange" variant="ghost" leftIcon={faSignIn} >
+                    <Link href={path}>
+                        <Button colorScheme="orange" variant="ghost" leftIcon={faSignIn} handleClick={() => path === "#" ? logout() : undefined} >
                             {#if isAuthenticated}
                                 Logout
                             {:else}

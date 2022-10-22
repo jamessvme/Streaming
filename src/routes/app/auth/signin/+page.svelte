@@ -75,7 +75,9 @@
     <!-- left side -->
     <div class="hidden md:flex flex-col w-1/2 min-h-full bg-orange-500 px-12 my-10 text-white">
         <div class="flex items-center h-24">
-            <span class="text-4xl font-bold italic">Flogram</span>
+            <Link href="/">
+                <span class="text-4xl font-bold italic cursor-pointer">Flogram</span>
+            </Link>
         </div>
 
         <div class="flex items-center grow">

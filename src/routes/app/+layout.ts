@@ -45,6 +45,6 @@ const verify = async () => {
 }
 
 export const load = () => {
-    if(typeof window !== 'undefined' && !window.location.href.includes("auth"))
+    if(typeof window !== 'undefined' && !window.location.href.includes("auth") && window.location.href.includes("app"))
         verify();
 }
