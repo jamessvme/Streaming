@@ -16,7 +16,7 @@
                 </div>
             </div>
 
-            <Button colorScheme="teal" variant="solid">Join our Discord</Button>
+            <Button colorScheme="orange" variant="solid">Join our Discord</Button>
         </div>
     </div>
 </div>
