@@ -5,6 +5,7 @@
     export let size = 'md';
     export let type = 'text';
     export let isInvalid = false;
+    export let isLoading = false;
 
     let timer: any;
 
@@ -46,4 +47,12 @@
     const sizeF = sizes[size as keyof SizeType];
 </script>
 
-<input type={type} class={`w-full min-w-0 outline outline-transparent outline-2 outline-offset-2 appearance-none relative transition py-0 ${sizeF} rounded-md border ${isInvalid ? 'border-red-500' : 'border-inherit focus-visible:z-1 ' + focusBorderColorF}`} on:input={handleInput} placeholder={placeholder} />
+<div class="w-full flex relative">
+    <input type={type} class={`w-full min-w-0 outline outline-transparent outline-2 outline-offset-2 appearance-none relative transition py-0 ${sizeF} rounded-md border ${isInvalid ? 'border-red-500' : 'border-inherit focus-visible:z-1 ' + focusBorderColorF}`} on:input={handleInput} placeholder={placeholder} />
+
+    {#if isLoading}
+    <div class="absolute right-0 w-10 h-10 flex items-center justify-center top-0 z-10">
+        <div class={`inline-block border-t-2 border-t-current border-r-2 border-r-current border-b-2 border-b-transparent border-l-2 border-l-transparent animate-loading-fast rounded-full w-4 h-4 text-current`} />
+    </div>
+    {/if}
+</div>

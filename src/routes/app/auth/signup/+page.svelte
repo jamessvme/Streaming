@@ -11,14 +11,15 @@
     import { toasts }  from "svelte-toasts";
 
     let isLoading = false;
+    let isCheckingUsername = false;
 
     const checkUsername = () => {
         return async (username: string) => {
-            isLoading = true;
+            isCheckingUsername = true;
             const response = await axios.get(`${env.PUBLIC_FLOGRAM_API_URL}/users`);
             const users: any[] = response.data;
 
-            isLoading = false;
+            isCheckingUsername = false;
             return { valid: users.find((user: any) => user.username === username) === undefined, name: "already_taken" }
         }
     }
@@ -147,7 +148,7 @@
                     <!-- username -->
                     <div class="flex flex-col gap-1">
                         <span class="text-sm font-medium text-gray-700">User name</span>
-                        <Input type="text" placeholder="Enter your username" bind:value={$usernameF.value} isInvalid={$signupForm.hasError('username.required')} />
+                        <Input type="text" placeholder="Enter your username" bind:value={$usernameF.value} isInvalid={$signupForm.hasError('username.required')} isLoading={isCheckingUsername} />
                         {#if !$signupForm.valid}
                             {#if $signupForm.hasError('username.required')}
                             <FormErrorMessage>Username is required</FormErrorMessage>
@@ -157,26 +158,28 @@
                         {/if}
                     </div>
 
-                    <!-- First Name -->
-                    <div class="flex flex-col gap-1">
-                        <span class="text-sm font-medium text-gray-700">First Name</span>
-                        <Input type="text" placeholder="Enter your first name" bind:value={$firstNameF.value} isInvalid={$signupForm.hasError('first_name.required')} />
-                        {#if !$signupForm.valid}
-                            {#if $signupForm.hasError('first_name.required')}
-                            <FormErrorMessage>First name is required</FormErrorMessage>
+                    <div class="flex gap-1">
+                        <!-- First Name -->
+                        <div class="flex flex-col gap-1">
+                            <span class="text-sm font-medium text-gray-700">First Name</span>
+                            <Input type="text" placeholder="Enter your first name" bind:value={$firstNameF.value} isInvalid={$signupForm.hasError('first_name.required')} />
+                            {#if !$signupForm.valid}
+                                {#if $signupForm.hasError('first_name.required')}
+                                <FormErrorMessage>First name is required</FormErrorMessage>
+                                {/if}
                             {/if}
-                        {/if}
-                    </div>
+                        </div>
 
-                    <!-- Last Name -->
-                    <div class="flex flex-col gap-1">
-                        <span class="text-sm font-medium text-gray-700">Last Name</span>
-                        <Input type="text" placeholder="Enter your last name" bind:value={$lastNameF.value} isInvalid={$signupForm.hasError('last_name.required')} />
-                        {#if !$signupForm.valid}
-                            {#if $signupForm.hasError('last_name.required')}
-                            <FormErrorMessage>Last name is required</FormErrorMessage>
+                        <!-- Last Name -->
+                        <div class="flex flex-col gap-1">
+                            <span class="text-sm font-medium text-gray-700">Last Name</span>
+                            <Input type="text" placeholder="Enter your last name" bind:value={$lastNameF.value} isInvalid={$signupForm.hasError('last_name.required')} />
+                            {#if !$signupForm.valid}
+                                {#if $signupForm.hasError('last_name.required')}
+                                <FormErrorMessage>Last name is required</FormErrorMessage>
+                                {/if}
                             {/if}
-                        {/if}
+                        </div>
                     </div>
 
                     <!-- password -->
