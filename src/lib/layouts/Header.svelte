@@ -5,14 +5,12 @@
     import IconButton from '$lib/components/core/IconButton.svelte';
     import Badge from '$lib/components/core/Badge.svelte';
     import Fa from 'svelte-fa/src/fa.svelte';
-    import { faSearch, faMoon, faHeart, faSun, faSignIn, faDownload } from '@fortawesome/free-solid-svg-icons';
+    import { faSearch, faMoon, faHeart, faSun, faSignIn, faDownload, faUser } from '@fortawesome/free-solid-svg-icons';
     import { theme } from '$lib/store/theme';
     import { isAuthenticated as authenticated } from '$lib/store/authenticate';
 
     let mode = 'light';
     let isAuthenticated = false;
-
-    $: path = isAuthenticated ? "#" : "/app/auth/signin";
 
     const toggle = () => {
         theme.update(theme => theme === 'light' ? 'dark' : 'light');
@@ -61,16 +59,34 @@
                 <div class="flex items-center gap-2">
                     <IconButton variant="ghost" icon={faDownload} />
                     <IconButton variant="ghost" icon={mode == 'light' ? faMoon : faSun} handleClick={toggle} />
-                    <Button colorScheme="orange" leftIcon={faHeart}>Sponsor</Button>
-                    <Link href={path}>
-                        <Button colorScheme="orange" variant="ghost" leftIcon={faSignIn} handleClick={() => path === "#" ? logout() : undefined} >
-                            {#if isAuthenticated}
-                                Logout
-                            {:else}
-                                Login
-                            {/if}
-                        </Button>
-                    </Link>
+                    <div class="hidden md:block">
+                        <Button colorScheme="orange" leftIcon={faHeart}>Sponsor</Button>
+                    </div>
+                    <div class="md:hidden">
+                        <IconButton colorScheme="orange" icon={faHeart} />
+                    </div>
+                    {#if isAuthenticated}
+                        <Button colorScheme="orange" variant="ghost" leftIcon={faSignIn} handleClick={() => logout()}>Logout</Button>
+                    {:else}
+                        <div class="flex gap-1">
+                            <Link href="/app/auth/signin">
+                                <div class="hidden md:block">
+                                    <Button colorScheme="orange" variant="ghost" leftIcon={faSignIn}>Login</Button>
+                                </div>
+                                <div class="md:hidden">
+                                    <IconButton colorScheme="orange" variant="ghost" icon={faSignIn} />
+                                </div>
+                            </Link>
+                            <Link href="/app/auth/signup">
+                                <div class="hidden md:block">
+                                    <Button colorScheme="orange" variant="ghost" leftIcon={faUser}>Sign Up</Button>
+                                </div>
+                                <div class="md:hidden">
+                                    <IconButton colorScheme="orange" variant="ghost" icon={faUser} />
+                                </div>
+                            </Link>
+                        </div>
+                    {/if}
                 </div>
             </div>
         </div>
