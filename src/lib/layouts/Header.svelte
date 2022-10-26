@@ -5,7 +5,7 @@
     import IconButton from '$lib/components/core/IconButton.svelte';
     import Badge from '$lib/components/core/Badge.svelte';
     import Fa from 'svelte-fa/src/fa.svelte';
-    import { faSearch, faMoon, faHeart, faSun, faSignIn } from '@fortawesome/free-solid-svg-icons';
+    import { faSearch, faMoon, faHeart, faSun, faSignIn, faDownload } from '@fortawesome/free-solid-svg-icons';
     import { theme } from '$lib/store/theme';
     import { isAuthenticated as authenticated } from '$lib/store/authenticate';
 
@@ -46,7 +46,7 @@
             </div>
 
             <!-- Left side menu -->
-            <div class="flex items-center justify-end w-full text-gray-400 max-w-2xl">
+            <div class="flex gap-5 items-center justify-end w-full text-gray-400 max-w-2xl">
                 <div class="hidden sm:block">
                     <Button variant="outline" colorScheme="gray" fullWidth>
                         <Fa size="sm" icon={faSearch} />
@@ -57,31 +57,9 @@
                     </Button>
                 </div>
 
-                <!-- social button groups -->
-                <div class="hidden md:flex items-center px-8 gap-5">
-                    <Link href="" class="bg-transparent cursor-pointer outline outline-transparent outline-offset-2 text-inherit transition">
-                        <i class="fa fa-github leading-4 shrink-0 transition hover:text-gray-600 !text-2xl" />
-                    </Link>
-
-                    <Link href="" class="bg-transparent cursor-pointer outline outline-transparent outline-offset-2 text-inherit transition">
-                        <i class="fa fa-discord-alt leading-4 shrink-0 transition hover:text-gray-600 !text-2xl" />
-                    </Link>
-
-                    <Link href="" class="bg-transparent cursor-pointer outline outline-transparent outline-offset-2 text-inherit transition">
-                        <i class="fa fa-youtube-play leading-4 shrink-0 transition hover:text-gray-600 !text-2xl" />
-                    </Link>
-
-                    <Link href="" class="bg-transparent cursor-pointer outline outline-transparent outline-offset-2 text-inherit transition">
-                        <i class="fa fa-facebook-square leading-4 shrink-0 transition hover:text-gray-600 !text-2xl" />
-                    </Link>
-
-                    <Link href="" class="bg-transparent cursor-pointer outline outline-transparent outline-offset-2 text-inherit transition">
-                        <i class="fa fa-download leading-4 shrink-0 transition hover:text-gray-600 !text-2xl" />
-                    </Link>
-                </div>
-
                 <!-- Dark/Light & Sponser & signin/signup -->
                 <div class="flex items-center gap-2">
+                    <IconButton variant="ghost" icon={faDownload} />
                     <IconButton variant="ghost" icon={mode == 'light' ? faMoon : faSun} handleClick={toggle} />
                     <Button colorScheme="orange" leftIcon={faHeart}>Sponsor</Button>
                     <Link href={path}>

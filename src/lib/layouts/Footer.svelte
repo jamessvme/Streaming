@@ -1,3 +1,26 @@
-<footer class="flex items-center text-center flex-col my-12 text-gray-700">
+<script lang="ts">
+    import Link from 'svelte-link';
+</script>
+
+<footer class="flex gap-2 items-center text-center flex-col my-12 text-gray-700">
     <p>Copyright @2022 Launched by Flogram team</p>
+
+    <!-- social button groups -->
+    <div class="hidden md:flex items-center px-8 gap-5">
+        <Link href="" class="bg-transparent cursor-pointer outline outline-transparent outline-offset-2 text-inherit transition">
+            <i class="fa fa-github leading-4 shrink-0 transition hover:text-gray-600 !text-2xl" />
+        </Link>
+
+        <Link href="" class="bg-transparent cursor-pointer outline outline-transparent outline-offset-2 text-inherit transition">
+            <i class="fa fa-discord-alt leading-4 shrink-0 transition hover:text-gray-600 !text-2xl" />
+        </Link>
+
+        <Link href="" class="bg-transparent cursor-pointer outline outline-transparent outline-offset-2 text-inherit transition">
+            <i class="fa fa-youtube-play leading-4 shrink-0 transition hover:text-gray-600 !text-2xl" />
+        </Link>
+
+        <Link href="" class="bg-transparent cursor-pointer outline outline-transparent outline-offset-2 text-inherit transition">
+            <i class="fa fa-facebook-square leading-4 shrink-0 transition hover:text-gray-600 !text-2xl" />
+        </Link>
+    </div>
 </footer>
