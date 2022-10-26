@@ -48,9 +48,9 @@
                 <div class="hidden sm:block">
                     <Button variant="outline" colorScheme="gray" fullWidth>
                         <Fa size="sm" icon={faSearch} />
-                        <span class="flex items-center w-full ml-3">
+                        <span class="flex items-center w-full ml-3 gap-2">
                             <p class="text-left flex-1">Search the docs</p>
-                            <Badge colorScheme='orange'>Ctrl + Space</Badge>
+                            <Badge colorScheme='orange'>Ctl + Space</Badge>
                         </span>
                     </Button>
                 </div>

@@ -73,7 +73,7 @@
         <p class="text-gray-500">Flogram is simpler and faster but similar to the other popular programming languages like C, C++, Rust.</p>
 
         <div class="flex flex-col md:flex-row items-center justify-center mt-5 gap-5">
-            <Button size='lg' colorScheme='orange' rightIcon={faArrowRight}>Get Started</Button>
+            <Button size='lg' colorScheme='orange' rightIcon={faArrowRight}>View Tutorial</Button>
             <Button size='lg' colorScheme='orange' variant='ghost' rightIcon={faDownload}>Download (0 weekly downloads)</Button>
         </div>
     </div>
