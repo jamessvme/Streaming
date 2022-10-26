@@ -4,7 +4,20 @@
     import { faBell } from '@fortawesome/free-solid-svg-icons';
     import Avatar from 'svelte-boring-avatars';
 
-    const menus = ["Issues", "Marketpalce", "Explore"];
+    const menus = [
+        {
+            label: "Issues",
+            link: "#"
+        }, 
+        {
+            label: "Explore",
+            link: "#"
+        }, 
+        {
+            label: "Documentation",
+            link: "/app/home"
+        }
+    ];
 </script>
 
 <div class="flex justify-between px-8 py-4 text-base bg-orange-500 text-white items-center">
@@ -23,8 +36,8 @@
         <!-- Nav menu -->
         <div class="flex gap-5">
             {#each menus as menu}
-            <Link href="#" class="font-semibold hover:opacity-50 transition">
-                {menu}
+            <Link href={menu.link} class="font-semibold hover:opacity-50 transition">
+                {menu.label}
             </Link>
             {/each}
         </div>

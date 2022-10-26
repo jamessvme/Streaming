@@ -18,11 +18,6 @@
             </div>
         </div>
     {:else}
-        {#if isAuthenticated && typeof window !== 'undefined' && !window.location.href.includes("auth") && !window.location.href.includes("repo")}
-            <Header />
-            <slot />
-        {:else if typeof window !== 'undefined' && (window.location.href.includes("auth") || window.location.href.includes("repo"))}
-            <slot />
-        {/if}
+        <slot />
     {/if}
 </div>

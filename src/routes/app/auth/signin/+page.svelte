@@ -47,7 +47,7 @@
                 });
 
                 if(typeof window !== 'undefined') {
-                    window.location.href = "/app/home";
+                    window.location.href = "/app/repo";
                 }
 
                 isLoading = false;

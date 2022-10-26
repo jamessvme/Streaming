@@ -1,6 +1,9 @@
 <script lang="ts">
     import Tab from "$lib/components/core/Tab.svelte";
     import LibraryCard from "$lib/components/pages/repo/LibraryCard.svelte";
+    import Input from "$lib/components/core/Input.svelte";
+    import Button from "$lib/components/core/Button.svelte";
+    import { faBookAtlas } from '@fortawesome/free-solid-svg-icons';
     import type { LibraryType } from "./types";
 
     const tabs = ["Overview", "Libraries", "Projects", "Stars"];
@@ -54,10 +57,21 @@
 
         <!-- Libraries -->
         {#if currentTab === 1}
-        <div class="grid lg:grid-cols-2 gap-5">
-            {#each myLibraries as library}
-            <LibraryCard library={library} />
-            {/each}
+        <div class="flex flex-col gap-5">
+            <!-- top side -->
+            <div class="flex items-center justify-between">
+                <div class="flex gap-5">
+                    <Input placeholder="Finad a library..." />
+                </div>
+
+                <Button colorScheme="orange" leftIcon={faBookAtlas}>Create New Library</Button>
+            </div>
+            <!-- library list -->
+            <div class="grid lg:grid-cols-2 gap-5">
+                {#each myLibraries as library}
+                <LibraryCard library={library} />
+                {/each}
+            </div>
         </div>
         {/if}
         <!-- Projects -->
