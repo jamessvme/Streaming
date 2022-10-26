@@ -2,7 +2,18 @@
     import Link from 'svelte-link';
     import IconButton from '$lib/components/core/IconButton.svelte';
     import { faBell } from '@fortawesome/free-solid-svg-icons';
+    import Dropdown from '$lib/components/core/Dropdown.svelte';
     import Avatar from 'svelte-boring-avatars';
+    import Button from '$lib/components/core/Button.svelte';
+    import Divider from '$lib/components/core/Divider.svelte';
+    import { clickOutside } from '$lib/util/util';
+    import { current_user } from '$lib/store/user';
+    import type { User } from '$lib/types/User';
+    
+    let user: User;
+    let isMenuOpen = false;
+
+    current_user.subscribe(value => user = value);
 
     const menus = [
         {
@@ -18,6 +29,13 @@
             link: "/app/home"
         }
     ];
+
+    const logout = () => {
+        if(typeof localStorage !== 'undefined' && typeof location !== 'undefined') {
+            localStorage.removeItem("access_token");
+            location.reload();
+        }
+    }
 </script>
 
 <div class="flex justify-between px-8 py-4 text-base bg-orange-500 text-white items-center">
@@ -47,12 +65,25 @@
     <div class="flex gap-3">
         <IconButton icon={faBell} colorScheme="orange"  />
 
-        <div class="cursor-pointer hover:opacity-80 transition">
-            <Avatar
-                name="Maria Mitchell"
-                variant="bauhaus"
-                colors={['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']}
-            />
+        <div class="relative">
+            <div class="cursor-pointer" use:clickOutside on:click={() => isMenuOpen = !isMenuOpen} on:click_outside={() => isMenuOpen = false}>
+                <Avatar
+                    name="Maria Mitchell"
+                    variant="bauhaus"
+                    colors={['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']}
+                />
+            </div>
+
+            <Dropdown direction="right" visibility={isMenuOpen}>
+                <div class="flex flex-col">
+                    {#if user}
+                        <span class="text-orange-500 w-52 uppercase leading-9">Signed as {user.username}</span>
+                    {/if}
+                    <Divider />
+                    <Button colorScheme="orange" variant="ghost" fullWidth >Profile</Button>
+                    <Button colorScheme="orange" variant="ghost" fullWidth handleClick={logout}>Logout</Button>
+                </div>
+            </Dropdown>
         </div>
     </div>
 </div>

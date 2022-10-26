@@ -1,4 +1,5 @@
 import { isAuthenticated, isAuthenticating } from "$lib/store/authenticate";
+import { current_user } from "$lib/store/user";
 import axios from "axios";
 import { env } from '$env/dynamic/public';
 import { toasts }  from "svelte-toasts";
@@ -15,6 +16,7 @@ const verify = async () => {
 
         isAuthenticating.set(false);
         isAuthenticated.set(true);
+        current_user.set(response.data);
     } catch (error: any) {
         if(error.response.data.statusCode == 400) {
             toasts.add({
