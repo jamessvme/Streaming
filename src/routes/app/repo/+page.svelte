@@ -1,5 +1,6 @@
 <script lang="ts">
     import Tab from "$lib/components/core/Tab.svelte";
+    import Link from "svelte-link";
     import LibraryCard from "$lib/components/pages/repo/LibraryCard.svelte";
     import Input from "$lib/components/core/Input.svelte";
     import Button from "$lib/components/core/Button.svelte";
@@ -64,7 +65,9 @@
                     <Input placeholder="Finad a library..." />
                 </div>
 
-                <Button colorScheme="orange" leftIcon={faBookAtlas}>Create New Library</Button>
+                <Link href="/app/repo/create">
+                    <Button colorScheme="orange" leftIcon={faBookAtlas}>Create New Library</Button>
+                </Link>
             </div>
             <!-- library list -->
             <div class="grid lg:grid-cols-2 gap-5">
