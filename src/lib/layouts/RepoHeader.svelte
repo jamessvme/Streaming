@@ -68,7 +68,7 @@
         <div class="relative">
             <div class="cursor-pointer" use:clickOutside on:click={() => isMenuOpen = !isMenuOpen} on:click_outside={() => isMenuOpen = false}>
                 <Avatar
-                    name="Maria Mitchell"
+                    name={user && user.username}
                     variant="bauhaus"
                     colors={['#92A1C6', '#146A7C', '#F0AB3D', '#C271B4', '#C20D90']}
                 />

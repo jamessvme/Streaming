@@ -155,7 +155,7 @@
                             {#if $signupForm.hasError('username.required')}
                             <FormErrorMessage>Username is required</FormErrorMessage>
                             {:else if $signupForm.hasError('username.already_taken')}
-                            <FormErrorMessage>Username is alraedy taken</FormErrorMessage>
+                            <FormErrorMessage>Username is already taken</FormErrorMessage>
                             {/if}
                         {/if}
                     </div>
