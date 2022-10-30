@@ -1,9 +1,13 @@
 <script lang="ts">
     export let tabs: string[] = [];
     export let currentTab = 0;
+    export let localStorageName = "";
 
     const handleClick = (i: number) => {
         currentTab = i;
+        if(typeof localStorage !== 'undefined') {
+            localStorage.setItem(localStorageName + "_tab", i.toString());
+        }
     }
 </script>
 

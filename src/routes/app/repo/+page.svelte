@@ -1,56 +1,19 @@
 <script lang="ts">
     import Tab from "$lib/components/core/Tab.svelte";
-    import Link from "svelte-link";
-    import LibraryCard from "$lib/components/pages/repo/LibraryCard.svelte";
-    import Input from "$lib/components/core/Input.svelte";
-    import Button from "$lib/components/core/Button.svelte";
-    import { faBookAtlas } from '@fortawesome/free-solid-svg-icons';
-    import type { LibraryType } from "./types";
+    import Overview from "$lib/components/pages/repo/tabs/Overview.svelte";
+    import Library from "$lib/components/pages/repo/tabs/Library.svelte";
 
     const tabs = ["Overview", "Libraries", "Projects", "Stars"];
-    let currentTab = 0;
-    const myLibraries: LibraryType[] = [
-        {
-            id: 1,
-            name: "Math",
-            description: "This is Math library. This library will be based of every libraries.",
-            tags: [
-                {
-                    label: "base",
-                    color: "gray"
-                },
-                {
-                    label: "highlight",
-                    color: "orange"
-                },
-            ],
-            isTopRanked: true,
-            votes: 34,
-            downloads: 234
-        },
-        {
-            id: 2,
-            name: "Random Color",
-            description: "This is Random Color library. A tiny script for generating attractive random colors.",
-            tags: [
-                {
-                    label: "base",
-                    color: "gray"
-                },
-                {
-                    label: "random",
-                    color: "red"
-                },
-            ],
-            isTopRanked: true,
-            votes: 20031,
-            downloads: 3000201
-        }
-    ];
+    let currentTab = -1;
+
+    if(typeof localStorage !== 'undefined') {
+        currentTab = localStorage.getItem("repo_tab") === null ? 0 : parseInt(localStorage.getItem("repo_tab") as string);
+    }
 </script>
 
 <div class="mt-6 w-full">
-    <Tab tabs={tabs} bind:currentTab={currentTab} />
+    {#if currentTab !== -1}
+    <Tab tabs={tabs} bind:currentTab={currentTab} localStorageName="repo" />
 
     <!-- Tab content -->
     <div class="mt-5 p-5">
@@ -58,27 +21,11 @@
 
         <!-- Libraries -->
         {#if currentTab === 1}
-        <div class="flex flex-col gap-5">
-            <!-- top side -->
-            <div class="flex items-center justify-between">
-                <div class="flex gap-5">
-                    <Input placeholder="Finad a library..." />
-                </div>
-
-                <Link href="/app/repo/create">
-                    <Button colorScheme="orange" leftIcon={faBookAtlas}>Create New Library</Button>
-                </Link>
-            </div>
-            <!-- library list -->
-            <div class="grid lg:grid-cols-2 gap-5">
-                {#each myLibraries as library}
-                <LibraryCard library={library} />
-                {/each}
-            </div>
-        </div>
+        <Library />
         {/if}
         <!-- Projects -->
 
         <!-- Stars -->
     </div>
+    {/if}
 </div>
