@@ -1,5 +1,6 @@
 <script lang="ts">
     import Button from "$lib/components/core/Button.svelte";
+    import Link from "svelte-link";
 </script>
 
 <div class="bg-[#5865F2]">
@@ -16,7 +17,9 @@
                 </div>
             </div>
 
-            <Button colorScheme="orange" variant="solid">Join our Discord</Button>
+            <Link href="https://discord.gg/rYzWK6497a" target="_blank">
+                <Button colorScheme="orange" variant="solid">Join our Discord</Button>
+            </Link>
         </div>
     </div>
 </div>
