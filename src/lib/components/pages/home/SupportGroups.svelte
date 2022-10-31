@@ -2,7 +2,7 @@
     const companies = [
         {
             name: 'Frink',
-            logo: 'https://static.wixstatic.com/media/8da031_8d0ee2c4a48c40daaadad8aa9343aa75~mv2.png/v1/fill/w_226,h_60,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/logomin-Arial.png'
+            logo: '/img/frink.jpg'
         },
         {
             name: 'Domino',
