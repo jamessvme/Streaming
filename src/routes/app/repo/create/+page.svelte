@@ -5,17 +5,57 @@
     import { faBookAtlas, faLock, faPlus, faInfo, faCancel } from '@fortawesome/free-solid-svg-icons';
     import AccessCard from "$lib/components/pages/repo/AccessCard.svelte";
     import Input from "$lib/components/core/Input.svelte";
+    import FormErrorMessage from '$lib/components/core/FormErrorMessage.svelte';
     import Divider from "$lib/components/core/Divider.svelte";
     import Checkbox from '$lib/components/core/Checkbox.svelte';
     import { current_user } from "$lib/store/user";
     import type { User } from "$lib/types/User";
 	import Button from '$lib/components/core/Button.svelte';
+    import axios from "axios";
+    import { env } from '$env/dynamic/public';
+    import { form, field } from 'svelte-forms';
+    import { required } from 'svelte-forms/validators';
+    import { toasts }  from "svelte-toasts";
 
     let user:User;
     let isPublic = false;
     let isAddReadme = false;
+    let isLoading = false;
 
     current_user.subscribe(value => user = value);
+
+    const libraryNameF = field('libraryName', '', [required()]);
+    const libraryDescription = field('libraryDescription', '', []);
+
+    const LibraryCreateForm = form(libraryNameF, libraryDescription);
+
+    const handleCreate = async () => {
+        libraryNameF.validate();
+
+        if($LibraryCreateForm.dirty && $LibraryCreateForm.valid)
+        {
+            try {
+                isLoading = true;
+
+                const response = await axios.post(`${env.PUBLIC_FLOGRAM_API_URL}/libraries/`, { name: $libraryNameF.value, description: $libraryDescription.value, isPublic: isPublic, ownerId: user.userId });
+                toasts.add({
+                    title: 'Create Success!',
+                    description: '',
+                    duration: 3000, // 0 or negative to avoid auto-remove
+                    placement: 'bottom-right',
+                    showProgress: true,
+                    type: 'success',
+                    theme: 'dark',
+                    onClick: () => {},
+                    onRemove: () => {},
+                });
+
+                isLoading = false;
+            } catch {
+                isLoading = false;
+            }
+        }
+    }
 </script>
 
 <div class="max-w-3xl p-5 mx-auto">
@@ -47,14 +87,19 @@
             </div>
             <div class="flex flex-col gap-1">
                 <span class="text-gray-800">Library name *</span>
-                <Input placeholder="Enter a new library name" />
+                <Input placeholder="Enter a new library name" bind:value={$libraryNameF.value} isInvalid={$LibraryCreateForm.hasError("libraryName.required")} />
+                {#if !$LibraryCreateForm.valid}
+                    {#if $LibraryCreateForm.hasError('libraryName.required')}
+                    <FormErrorMessage>Name is required</FormErrorMessage>
+                    {/if}
+                {/if}
             </div>
         </div>
 
         <!-- Library description -->
         <div class="flex flex-col gap-1">
             <span class="text-gray-800">Description <span class="text-sm text-gray-500">(optional)</span></span>
-            <Input placeholder="Enter library description" />
+            <Input placeholder="Enter library description" bind:value={$libraryDescription.value} />
         </div>
 
         <Divider />
@@ -84,7 +129,7 @@
         <Divider />
 
         <div class="flex gap-2">
-            <Button colorScheme="orange" variant="outline" leftIcon={faPlus}>Create Library</Button>
+            <Button colorScheme="orange" variant="outline" leftIcon={faPlus} handleClick={handleCreate} isLoading={isLoading}>Create Library</Button>
             <Link href="/app/repo">
                 <Button colorScheme="orange" variant="ghost" leftIcon={faCancel} >Cancel</Button>
             </Link>

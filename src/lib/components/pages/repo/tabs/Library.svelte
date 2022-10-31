@@ -1,49 +1,28 @@
 <script lang="ts">
+	import { onMount } from "svelte";
     import Link from "svelte-link";
     import LibraryCard from "$lib/components/pages/repo/LibraryCard.svelte";
     import Input from "$lib/components/core/Input.svelte";
     import Button from "$lib/components/core/Button.svelte";
     import { faBookAtlas } from '@fortawesome/free-solid-svg-icons';
     import type { LibraryType } from "../../../../types/Library";
+    import axios from "axios";
+    import { env } from '$env/dynamic/public';
+    import { libraries } from "$lib/store/libraries";
 
-    const myLibraries: LibraryType[] = [
-        {
-            id: 1,
-            name: "Math",
-            description: "This is Math library. This library will be based of every libraries.",
-            tags: [
-                {
-                    label: "base",
-                    color: "gray"
-                },
-                {
-                    label: "highlight",
-                    color: "orange"
-                },
-            ],
-            isTopRanked: true,
-            votes: 34,
-            downloads: 234
-        },
-        {
-            id: 2,
-            name: "Random Color",
-            description: "This is Random Color library. A tiny script for generating attractive random colors.",
-            tags: [
-                {
-                    label: "base",
-                    color: "gray"
-                },
-                {
-                    label: "random",
-                    color: "red"
-                },
-            ],
-            isTopRanked: true,
-            votes: 20031,
-            downloads: 3000201
+    onMount(async () => {
+        try {
+            libraries.set([]);
+
+            const response = await axios.get<LibraryType[]>(`${env.PUBLIC_FLOGRAM_API_URL}/libraries/`);
+
+            libraries.set(response.data);
+        } catch (error) {
+            libraries.set([]);
         }
-    ];
+    });
+
+    console.log($libraries);
 </script>
 
 <div class="flex flex-col gap-5">
@@ -59,8 +38,10 @@
     </div>
     <!-- library list -->
     <div class="grid lg:grid-cols-2 gap-5">
-        {#each myLibraries as library}
-        <LibraryCard library={library} />
+        {#each $libraries as library}
+        <div>
+            <LibraryCard library={library} />
+        </div>
         {/each}
     </div>
 </div>

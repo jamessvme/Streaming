@@ -3,13 +3,13 @@
     import Badge from "$lib/components/core/Badge.svelte";
     import Button from "$lib/components/core/Button.svelte";
     import { faCheck, faComment, faDownload } from '@fortawesome/free-solid-svg-icons';
-    import type { LibraryType } from "src/routes/app/repo/types";
+    import type { LibraryType } from "src/lib/types/Library";
     import uniqolor from "uniqolor";
 
     export let library: LibraryType;
 </script>
 
-<div class="flex flex-col gap-5 p-5 bg-gray-100 rounded-lg">
+<div class="flex flex-col justify-between gap-5 p-5 bg-gray-100 rounded-lg">
     <!-- Main Content -->
     <div class="flex gap-5">
         <div class="w-20 h-20">
@@ -28,9 +28,11 @@
             </div>
             <!-- Library tags -->
             <div class="flex gap-2">
-                {#each library.tags as tag}
-                <Badge colorScheme={tag.color}>{tag.label}</Badge>
-                {/each}
+                {#if 'labels' in library}
+                    {#each library.labels as tag}
+                        <Badge colorScheme={tag.color}>{tag.name}</Badge>
+                    {/each}
+                {/if}
             </div>
         </div>
 

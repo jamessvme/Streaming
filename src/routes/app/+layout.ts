@@ -13,6 +13,7 @@ const verify = async () => {
         isAuthenticating.set(true);
 
         const response = await axios.post(`${env.PUBLIC_FLOGRAM_API_URL}/auth/verify`, { token: access_token });
+        axios.defaults.headers.common['Authorization'] = "Bearer " + access_token;
 
         isAuthenticating.set(false);
         isAuthenticated.set(true);
