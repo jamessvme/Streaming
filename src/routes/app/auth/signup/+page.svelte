@@ -26,18 +26,14 @@
 
     const emailF = field('email', '', [required(), email()]);
     const usernameF = field('username', '', [required(), checkUsername()]);
-    const firstNameF = field('first_name', '', [required()]);
-    const lastNameF = field('last_name', '', [required()]);
     const passwordF = field('password', '', [required()]);
     const password2F = field('password2', '', [required(), matchField(passwordF)]);
 
-    const signupForm = form(emailF, usernameF, firstNameF, lastNameF, passwordF, password2F);
+    const signupForm = form(emailF, usernameF, passwordF, password2F);
 
     const handleSignup = async () => {
         emailF.validate();
         usernameF.validate();
-        firstNameF.validate();
-        lastNameF.validate();
         passwordF.validate();
         password2F.validate();
 
@@ -45,7 +41,7 @@
         {
             try {
                 isLoading = true;
-                const response = await axios.post(`${env.PUBLIC_FLOGRAM_API_URL}/auth/signup`, { email: $emailF.value, username: $usernameF.value, first_name: $firstNameF.value, last_name: $lastNameF.value, password: $passwordF.value  });
+                const response = await axios.post(`${env.PUBLIC_FLOGRAM_API_URL}/auth/signup`, { email: $emailF.value, username: $usernameF.value, password: $passwordF.value  });
 
                 toasts.add({
                     title: 'Registered Successfully!',
@@ -158,30 +154,6 @@
                             <FormErrorMessage>Username is already taken</FormErrorMessage>
                             {/if}
                         {/if}
-                    </div>
-
-                    <div class="flex gap-1">
-                        <!-- First Name -->
-                        <div class="flex flex-col gap-1">
-                            <span class="text-sm font-medium text-gray-700">First Name</span>
-                            <Input type="text" placeholder="Enter your first name" bind:value={$firstNameF.value} isInvalid={$signupForm.hasError('first_name.required')} />
-                            {#if !$signupForm.valid}
-                                {#if $signupForm.hasError('first_name.required')}
-                                <FormErrorMessage>First name is required</FormErrorMessage>
-                                {/if}
-                            {/if}
-                        </div>
-
-                        <!-- Last Name -->
-                        <div class="flex flex-col gap-1">
-                            <span class="text-sm font-medium text-gray-700">Last Name</span>
-                            <Input type="text" placeholder="Enter your last name" bind:value={$lastNameF.value} isInvalid={$signupForm.hasError('last_name.required')} />
-                            {#if !$signupForm.valid}
-                                {#if $signupForm.hasError('last_name.required')}
-                                <FormErrorMessage>Last name is required</FormErrorMessage>
-                                {/if}
-                            {/if}
-                        </div>
                     </div>
 
                     <!-- password -->

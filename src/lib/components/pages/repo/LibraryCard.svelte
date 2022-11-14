@@ -5,57 +5,60 @@
     import { faCheck, faComment, faDownload } from '@fortawesome/free-solid-svg-icons';
     import type { LibraryType } from "src/lib/types/Library";
     import uniqolor from "uniqolor";
+    import Link from "svelte-link"
 
     export let library: LibraryType;
 </script>
 
-<div class="flex flex-col justify-between gap-5 p-5 bg-gray-100 rounded-lg">
-    <!-- Main Content -->
-    <div class="flex gap-5">
-        <div class="w-20 h-20">
-            <Avatar initials="" src="" name={library.name} size="80px" bgColor={uniqolor(library.name).color} borderRadius="10%" />
-        </div>
-
-        <!-- Desc -->
-        <div class="grow flex flex-col justify-between">
-            <!-- Library name -->
-            <div class="font-medium text-xl">
-                {library.name}
-            </div>
-            <!-- Library description -->
-            <div class="text-gray-500">
-                {library.description}
-            </div>
-            <!-- Library tags -->
-            <div class="flex gap-2">
-                {#if 'labels' in library}
-                    {#each library.labels as tag}
-                        <Badge colorScheme={tag.color}>{tag.name}</Badge>
-                    {/each}
-                {/if}
-            </div>
-        </div>
-
-        <!-- Top badge -->
-        {#if library.isTopRanked}
-        <div>
-            <Badge fontSize="16px" colorScheme="orange">Top Ranked</Badge>
-        </div>
-        {/if}
-    </div>
-    <!-- Action -->
-    <div class="flex items-center justify-between">
-        <!-- actions -->
-        <div class="flex gap-2">
-            <Button size="sm" leftIcon={faCheck} colorScheme="orange" variant="ghost">Like</Button>
-            <Button size="sm" leftIcon={faComment} colorScheme="orange" variant="ghost">Comment</Button>
-            <Button size="sm" leftIcon={faDownload} colorScheme="orange" variant="ghost">Download</Button>
-        </div>
-
-        <!-- status -->
+<Link href={`/app/repo/${library.name}`}>
+    <div class="flex flex-col justify-between gap-5 p-5 bg-gray-100 rounded-lg cursor-pointer hover:bg-gray-200/70 transition">
+        <!-- Main Content -->
         <div class="flex gap-5">
-            <span class="text-gray-600 font-medium">{library.votes} votes</span>
-            <span class="text-gray-600 font-medium">{library.downloads} downloads</span>
+            <div class="w-20 h-20">
+                <Avatar initials="" src="" name={library.name} size="80px" bgColor={uniqolor(library.name).color} borderRadius="10%" />
+            </div>
+    
+            <!-- Desc -->
+            <div class="grow flex flex-col justify-between">
+                <!-- Library name -->
+                <div class="font-medium text-xl">
+                    {library.name}
+                </div>
+                <!-- Library description -->
+                <div class="text-gray-500">
+                    {library.description}
+                </div>
+                <!-- Library tags -->
+                <div class="flex gap-2">
+                    {#if 'labels' in library}
+                        {#each library.labels as tag}
+                            <Badge colorScheme={tag.color}>{tag.name}</Badge>
+                        {/each}
+                    {/if}
+                </div>
+            </div>
+    
+            <!-- Top badge -->
+            {#if library.isTopRanked}
+            <div>
+                <Badge fontSize="16px" colorScheme="orange">Top Ranked</Badge>
+            </div>
+            {/if}
+        </div>
+        <!-- Action -->
+        <div class="flex items-center justify-between">
+            <!-- actions -->
+            <div class="flex gap-2">
+                <Button size="sm" leftIcon={faCheck} colorScheme="orange" variant="ghost">Like</Button>
+                <Button size="sm" leftIcon={faComment} colorScheme="orange" variant="ghost">Comment</Button>
+                <Button size="sm" leftIcon={faDownload} colorScheme="orange" variant="ghost">Download</Button>
+            </div>
+    
+            <!-- status -->
+            <div class="flex gap-5">
+                <span class="text-gray-600 font-medium">{library.votes} votes</span>
+                <span class="text-gray-600 font-medium">{library.downloads} downloads</span>
+            </div>
         </div>
     </div>
-</div>
+</Link>
