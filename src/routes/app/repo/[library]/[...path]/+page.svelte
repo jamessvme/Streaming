@@ -41,7 +41,9 @@
             isLoading = true;
             const response = await axios.get(`${env.PUBLIC_FLOGRAM_API_URL}/libraries/list/${data.name}/${data.path === '' ? 'root' : data.path.replace("/", "-")}`);
 
-            lists = response.data;
+            if(response.data.isEmpty) {
+                lists = [];
+            } else lists = response.data;
 
             isLoading = false;
         } catch (error) {
