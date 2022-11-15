@@ -24,7 +24,13 @@
 
     current_user.subscribe(value => user = value);
 
-    const libraryNameF = field('libraryName', '', [required()]);
+    const checkLibraryNameHasSpaces = () => {
+        return async (libraryName: string) => {
+            return { valid: libraryName.indexOf(" ") < 0, name: "contain_space" };
+        }
+    }
+
+    const libraryNameF = field('libraryName', '', [required(), checkLibraryNameHasSpaces()]);
     const libraryDescription = field('libraryDescription', '', []);
 
     const LibraryCreateForm = form(libraryNameF, libraryDescription);
@@ -91,6 +97,9 @@
                 {#if !$LibraryCreateForm.valid}
                     {#if $LibraryCreateForm.hasError('libraryName.required')}
                     <FormErrorMessage>Name is required</FormErrorMessage>
+                    {/if}
+                    {#if $LibraryCreateForm.hasError('libraryName.contain_space')}
+                    <FormErrorMessage>Library name must not contain any spaces</FormErrorMessage>
                     {/if}
                 {/if}
             </div>
