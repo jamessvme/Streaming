@@ -7,7 +7,7 @@
     import IconButton from '$lib/components/core/IconButton.svelte';
     import Avatar from 'svelte-boring-avatars';
     import Fa from 'svelte-fa/src/fa.svelte';
-    import { faDownload, faThumbsUp, faLock, faChevronDown, faHistory, faFolder, faFile, faF } from '@fortawesome/free-solid-svg-icons';
+    import { faDownload, faThumbsUp, faLock, faChevronDown, faHistory, faFolder, faFile, faPlus } from '@fortawesome/free-solid-svg-icons';
     import { current_user } from "$lib/store/user";
     import { ListType } from "$lib/types/List";
     import type { List } from "$lib/types/List";
@@ -104,7 +104,7 @@
                     <!-- actions -->
                     <div class="flex gap-2 justify-end">
                         <Button colorScheme="orange" variant="outline" size="sm">Go to file</Button>
-                        <Button colorScheme="orange" variant="outline" size="sm" rightIcon={faChevronDown}>Add file</Button>
+                        <Button colorScheme="orange" variant="outline" size="sm" rightIcon={faPlus}>Add file</Button>
                         <Button colorScheme="orange" size="sm" rightIcon={faChevronDown}>Code</Button>
                     </div>
 
