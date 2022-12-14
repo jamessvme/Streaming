@@ -10,7 +10,9 @@
 	import axios from 'axios';
 	import { env } from '$env/dynamic/public';
 	import { toasts } from 'svelte-toasts';
-
+	import { theme } from '$lib/store/theme';
+	import { onMount } from 'svelte';
+	let mode: string = 'dark';
 	let isRemember = false;
 	let isLoading = false;
 
@@ -72,11 +74,16 @@
 			}
 		}
 	};
+	onMount(() => {
+		theme.subscribe((value) => (mode = value));
+	});
 </script>
 
-<div class="max-w-[1200px] mx-auto min-h-[100vh] flex flex-col md:flex-row">
+<div class="dark:bg-gray-900 max-w-[1200px] mx-auto min-h-[100vh] flex flex-col md:flex-row">
 	<!-- left side -->
-	<div class="hidden md:flex flex-col w-1/2 min-h-full bg-orange-500 px-12 my-10 text-white">
+	<div
+		class="dark:bg-slate-700 hidden md:flex flex-col w-1/2 min-h-full bg-orange-500 px-12 my-10 text-white"
+	>
 		<div class="flex items-center h-24">
 			<Link href="/">
 				<span class="text-4xl font-bold italic cursor-pointer">Flogram</span>
@@ -131,22 +138,26 @@
 	<!-- right side -->
 	<div class="flex flex-col w-full md:w-1/2 md:min-h-full md:px-12 my-10">
 		<div class="flex items-center w-full mx-auto min-h-full px-8 md:py-48">
-			<div class="flex flex-col gap-8 w-full">
+			<div class="dark:text-gray-100 flex flex-col gap-8 w-full">
 				<div class="flex flex-col text-center gap-2">
 					<span class="font-semibold text-3xl leading-10">Log in to your account</span>
 
-					<div class="text-gray-700 flex items-center justify-center">
+					<div class="dark:text-gray-500 text-gray-700 flex items-center justify-center">
 						Don't have an account?
-						<Link href="/app/auth/signup">
-							<Button colorScheme="orange" variant="link">Sign up</Button>
-						</Link>
+						<!-- <Link href="/app/auth/signup">
+							<Button colorScheme={mode === 'dark' ? 'gray500' : 'orange'} variant="link"
+								>Sign up</Button
+							>
+						</Link> -->
+						<Link href="/app/auth/signup" class="dark:text-gray-100 ml-3">Sign up</Link>
 					</div>
 				</div>
 
 				<div class="flex flex-col gap-5">
 					<!-- username -->
 					<div class="flex flex-col gap-1">
-						<span class="text-sm font-medium text-gray-700">UsernameOrEmail</span>
+						<span class="dark:text-gray-500 text-sm font-medium text-gray-700">UsernameOrEmail</span
+						>
 						<Input
 							type="text"
 							placeholder="Enter your username"
@@ -162,7 +173,7 @@
 
 					<!-- password -->
 					<div class="flex flex-col gap-1">
-						<span class="text-sm font-medium text-gray-700">Password</span>
+						<span class="dark:text-gray-500 text-sm font-medium text-gray-700">Password</span>
 						<Input
 							type="password"
 							placeholder="Enter your password"
@@ -181,11 +192,15 @@
 				<!-- remember & forgot password -->
 				<div class="flex justify-between">
 					<Checkbox bind:value={isRemember} colorScheme="orange">Remember me</Checkbox>
-					<Button colorScheme="orange" variant="link">Forgot password</Button>
+					<!-- <Button colorScheme="orange" variant="link">Forgot password</Button> -->
 				</div>
 
 				<!-- SignIn button -->
-				<Button colorScheme="orange" fullWidth handleClick={handleSignin} {isLoading}>Log in</Button
+				<Button
+					colorScheme={mode === 'dark' ? 'blue50' : 'orange'}
+					fullWidth
+					handleClick={handleSignin}
+					{isLoading}>Log in</Button
 				>
 			</div>
 		</div>

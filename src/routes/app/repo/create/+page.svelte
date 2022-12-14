@@ -16,11 +16,14 @@
 	import { form, field } from 'svelte-forms';
 	import { required } from 'svelte-forms/validators';
 	import { toasts } from 'svelte-toasts';
+	import { theme } from '$lib/store/theme';
+	import { onMount } from 'svelte';
 
 	let user: User;
 	let isPublic = false;
 	let isAddReadme = false;
 	let isLoading = false;
+	let mode: string = 'dark';
 
 	current_user.subscribe((value) => (user = value));
 
@@ -71,13 +74,16 @@
 			}
 		}
 	};
+	onMount(() => {
+		theme.subscribe((value) => (mode = value));
+	});
 </script>
 
-<div class="max-w-3xl p-5 mx-auto">
+<div class="dark:text-gray-100 max-w-3xl p-5 mx-auto">
 	<div class="flex flex-col gap-5">
 		<!-- Head -->
 		<div class="flex flex-col">
-			<div class="text-2xl">Create a new Library</div>
+			<div class="dark:text-gray-100 text-2xl">Create a new Library</div>
 
 			<p class="flex text-gray-600">
 				A library contains all flo files and modules. Please upload your flo library file.
@@ -89,7 +95,7 @@
 		<!-- Library name -->
 		<div class="flex gap-5">
 			<div class="flex flex-col gap-1">
-				<span class="text-gray-800">Owner *</span>
+				<span class="dark:text-gray-100 text-gray-800">Owner *</span>
 				<div class="flex h-10 items-center gap-3">
 					<Avatar
 						name="Maria Mitchell"
@@ -101,7 +107,7 @@
 				</div>
 			</div>
 			<div class="flex flex-col gap-1">
-				<span class="text-gray-800">Library name *</span>
+				<span class="dark:text-gray-100 text-gray-800">Library name *</span>
 				<Input
 					placeholder="Enter a new library name"
 					bind:value={$libraryNameF.value}
@@ -120,7 +126,7 @@
 
 		<!-- Library description -->
 		<div class="flex flex-col gap-1">
-			<span class="text-gray-800"
+			<span class="dark:text-gray-100 text-gray-800"
 				>Description <span class="text-sm text-gray-500">(optional)</span></span
 			>
 			<Input placeholder="Enter library description" bind:value={$libraryDescription.value} />
@@ -150,7 +156,9 @@
 
 		<!-- Readme file -->
 		<div class="flex flex-col gap-2">
-			<Checkbox bind:value={isAddReadme} colorScheme="orange">Add a readme file</Checkbox>
+			<Checkbox bind:value={isAddReadme} colorScheme={mode === 'light' ? 'orange' : 'gray'}
+				>Add a readme file</Checkbox
+			>
 			<span class="indent-6 text-sm text-gray-500"
 				>This is where you can write a long description for your project.</span
 			>
@@ -170,14 +178,18 @@
 
 		<div class="flex gap-2">
 			<Button
-				colorScheme="orange"
+				colorScheme={mode === 'light' ? 'orange' : 'blue50'}
 				variant="outline"
 				leftIcon={faPlus}
 				handleClick={handleCreate}
 				{isLoading}>Create Library</Button
 			>
 			<Link href="/app/repo">
-				<Button colorScheme="orange" variant="ghost" leftIcon={faCancel}>Cancel</Button>
+				<Button
+					colorScheme={mode === 'light' ? 'orange' : 'blue50'}
+					variant="ghost"
+					leftIcon={faCancel}>Cancel</Button
+				>
 			</Link>
 		</div>
 	</div>
