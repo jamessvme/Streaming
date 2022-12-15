@@ -35,7 +35,8 @@
 	const logout = () => {
 		if (typeof localStorage !== 'undefined' && typeof location !== 'undefined') {
 			localStorage.removeItem('access_token');
-			location.reload();
+			// location.reload();
+			window.location.href = '/app/auth/signin';
 		}
 	};
 
@@ -51,7 +52,7 @@
 	<div class="flex items-center gap-5">
 		<!-- Logo -->
 		<div class="flex items-center">
-			<Link href="/app/repo">
+			<Link href="/">
 				<span class="text-2xl font-bold italic">
 					<span class="hidden md:block">Flogram</span>
 					<span class="block md:hidden">F</span>

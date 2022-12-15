@@ -34,7 +34,6 @@
 				});
 
 				const access_token = response.data.access_token;
-
 				if (typeof localStorage !== 'undefined') {
 					localStorage.setItem('access_token', access_token);
 				}
@@ -58,7 +57,7 @@
 				isLoading = false;
 			} catch (error: any) {
 				isLoading = false;
-				if (error.response.status === 401) {
+				if (error.response.status === 404) {
 					toasts.add({
 						title: 'Authentication failed!',
 						description: 'Please check your username and password',

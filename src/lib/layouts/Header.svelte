@@ -14,14 +14,14 @@
 		faDownload,
 		faUser
 	} from '@fortawesome/free-solid-svg-icons';
-	import { theme } from '$lib/store/theme';
+	import { theme, setTheme } from '$lib/store/theme';
 	import { isAuthenticated as authenticated } from '$lib/store/authenticate';
 
 	let mode = 'dark';
 	let isAuthenticated = false;
 
 	const toggle = () => {
-		theme.update((theme) => (theme === 'light' ? 'dark' : 'light'));
+		return (mode = mode == 'dark' ? 'light' : 'dark');
 	};
 
 	const logout = () => {
@@ -30,6 +30,10 @@
 			location.reload();
 		}
 	};
+	$: {
+		mode;
+		setTheme(mode);
+	}
 
 	onMount(() => {
 		theme.subscribe((value) => (mode = value));
@@ -82,7 +86,8 @@
 					</div>
 					{#if isAuthenticated}
 						<Link href="/app/repo">
-							<Button colorScheme={mode == 'light' ? 'orange' : 'gray'} variant="ghost">Home</Button
+							<Button colorScheme={mode === 'light' ? 'orange' : 'gray'} variant="ghost"
+								>Main</Button
 							></Link
 						>
 						<Button
@@ -95,10 +100,8 @@
 						<div class="flex gap-1">
 							<Link href="/app/auth/signin">
 								<div class="hidden md:block">
-									<Button
-										colorScheme={mode === 'light' ? 'orange' : 'white'}
-										variant="ghost"
-										leftIcon={faSignIn}>Login</Button
+									<Button colorScheme={mode == 'light' ? 'orange' : 'white'} leftIcon={faSignIn}
+										>Login</Button
 									>
 								</div>
 								<div class="md:hidden">
@@ -107,10 +110,8 @@
 							</Link>
 							<Link href="/app/auth/signup">
 								<div class="hidden md:block">
-									<Button
-										colorScheme={mode === 'light' ? 'orange' : 'white'}
-										variant="ghost"
-										leftIcon={faUser}>Sign Up</Button
+									<Button colorScheme={mode === 'light' ? 'orange' : 'white'} leftIcon={faUser}
+										>Sign Up</Button
 									>
 								</div>
 								<div class="md:hidden">
