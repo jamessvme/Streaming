@@ -40,8 +40,11 @@
 	"dependencies": {
 		"@fortawesome/free-brands-svg-icons": "^6.2.0",
 		"@fortawesome/free-solid-svg-icons": "^6.2.0",
+		"@svelkit/spectre": "^0.2.3",
+		"@types/marked": "^4.0.7",
 		"axios": "^1.1.2",
 		"diff-match-patch": "^1.0.5",
+		"marked": "^4.2.3",
 		"svelte-avatar": "^1.2.0",
 		"svelte-boring-avatars": "^1.2.2",
 		"svelte-forms": "^2.3.1",
