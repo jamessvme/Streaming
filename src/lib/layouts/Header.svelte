@@ -14,14 +14,17 @@
 		faDownload,
 		faUser
 	} from '@fortawesome/free-solid-svg-icons';
-	import { theme, setTheme } from '$lib/store/theme';
+	import { theme, setTheme, themeValue } from '$lib/store/theme';
 	import { isAuthenticated as authenticated } from '$lib/store/authenticate';
 
 	let mode = 'dark';
 	let isAuthenticated = false;
 
 	const toggle = () => {
-		return (mode = mode == 'dark' ? 'light' : 'dark');
+		mode = mode == 'dark' ? 'light' : 'dark';
+		if (typeof localStorage !== 'undefined') {
+			localStorage.setItem('theme', mode);
+		}
 	};
 
 	const logout = () => {
@@ -32,7 +35,7 @@
 	};
 	$: {
 		mode;
-		setTheme(mode);
+		$theme = mode;
 	}
 
 	onMount(() => {
@@ -100,7 +103,7 @@
 						<div class="flex gap-1">
 							<Link href="/app/auth/signin">
 								<div class="hidden md:block">
-									<Button colorScheme={mode == 'light' ? 'orange' : 'white'} leftIcon={faSignIn}
+									<Button colorScheme={mode === 'light' ? 'orange' : 'hvGray'} leftIcon={faSignIn}
 										>Login</Button
 									>
 								</div>
@@ -110,7 +113,7 @@
 							</Link>
 							<Link href="/app/auth/signup">
 								<div class="hidden md:block">
-									<Button colorScheme={mode === 'light' ? 'orange' : 'white'} leftIcon={faUser}
+									<Button colorScheme={mode === 'light' ? 'orange' : 'hvGray'} leftIcon={faUser}
 										>Sign Up</Button
 									>
 								</div>

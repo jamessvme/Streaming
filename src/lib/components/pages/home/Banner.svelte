@@ -47,12 +47,10 @@
 	});
 </script>
 
-<div
-	class="dark:bg-gray-900 relative flex items-center justify-center w-full h-[800px] md:h-[600px]"
->
+<div class="relative flex items-center justify-center w-full h-[800px] md:h-[600px]">
 	<!-- banner content -->
 	<div
-		class="dark:bg-slate-700 dark:text-gray-100 flex flex-col gap-2 text-center p-5 bg-white/90 rounded-xl"
+		class="dark:bg-slate-700 dark:text-gray-100 dark:opacity-80 flex flex-col gap-2 text-center p-5 bg-white/90 rounded-xl"
 	>
 		<div class="text-6xl font-extrabold text-orange-500">
 			<h1 class="dark:text-gray-100">Performance without Pain</h1>
@@ -74,7 +72,7 @@
 			>
 			<Button
 				size="lg"
-				colorScheme={mode === 'light' ? 'orange' : 'gray50'}
+				colorScheme={mode === 'dark' ? 'hvGray' : 'orange'}
 				variant="ghost"
 				rightIcon={faDownload}>Download (0 weekly downloads)</Button
 			>
