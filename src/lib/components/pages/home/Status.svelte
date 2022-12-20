@@ -86,14 +86,14 @@
 					</Link>
 				</div>
 
-				<div class="flex items-center justify-center">
-					<Link href="https://github.com/hardcommitoneself">
-						<div class="w-20 h-20 rounded-full overflow-hidden">
-							<img src="https://avatars.githubusercontent.com/u/51176044?s=80&v=4" alt="Didier" />
-						</div>
-					</Link>
-				</div>
-			</div>
-		</div>
-	</div>
+                <div class="flex items-center justify-center">
+                    <Link href="https://github.com/didiermun">
+                        <div class="w-20 h-20 rounded-full overflow-hidden">
+                            <img src="https://avatars.githubusercontent.com/u/51176044?s=80&v=4" alt="Didier" />
+                        </div>
+                    </Link>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
