@@ -5,7 +5,7 @@
 
 	<div class="grid md:grid-cols-3 gap-20">
 		<div
-			class="flex flex-col items-center transition duration-200 p-6 rounded-md hover:bg-orange-200/50 cursor-pointer"
+			class="flex flex-col items-center transition duration-200 p-6 rounded-md hover:bg-orange-200/50 dark:hover:bg-slate-700 cursor-pointer"
 		>
 			<h3 class="mb-1 text-center text-body-lg lg:text-body-xl font-bold">
 				High <span class="dark:text-gray-100 text-orange-500 text-xl">Productivity</span>
@@ -18,7 +18,7 @@
 		</div>
 
 		<div
-			class="flex flex-col items-center transition duration-200 p-6 rounded-md hover:bg-orange-200/50 cursor-pointer"
+			class="flex flex-col items-center transition duration-200 p-6 rounded-md hover:bg-orange-200/50 dark:hover:bg-slate-700 cursor-pointer"
 		>
 			<h3 class="mb-1 text-center text-body-lg lg:text-body-xl font-bold">
 				High <span class="dark:text-gray-100 text-orange-500 text-xl">Performance</span>
@@ -33,7 +33,7 @@
 		</div>
 
 		<div
-			class="flex flex-col items-center transition duration-200 p-6 rounded-md hover:bg-orange-200/50 cursor-pointer"
+			class="flex flex-col items-center transition duration-200 p-6 rounded-md hover:bg-orange-200/50 dark:hover:bg-slate-700 cursor-pointer"
 		>
 			<h3 class="mb-1 text-center text-body-lg lg:text-body-xl font-bold">
 				High <span class="dark:text-gray-100 text-orange-500 text-xl">Security</span>
